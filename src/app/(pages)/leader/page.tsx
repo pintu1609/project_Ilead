@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import style from './leaderimage.module.css'
+import Leaderdes from './components/leaderdes/page';
 interface LeaderProps {
 }
 const Leader: React.FC<LeaderProps> = () => {
@@ -18,10 +19,8 @@ return (
   className={style.logoimage}
 />  
 </div> 
-<div className="p-10">
-      <h2 className="text-3xl font-bold">Our Leaders</h2>
-      <p className="mt-4">Meet the inspiring individuals driving change through leadership and innovation.</p>
-      {/* Add leader profiles here */}
+<div >
+     <Leaderdes/>
     </div>
     </div>
   );
