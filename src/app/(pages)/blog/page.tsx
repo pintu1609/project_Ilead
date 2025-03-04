@@ -1,52 +1,86 @@
+"use client"
 import Head from 'next/head';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import client from '../../../../sanityClient';
+
+
+interface Blog {
+  title: string;
+  description: string;
+  author: string;
+  date: string;
+  image: string;
+}
 
 export default function Blog() {
-  const blogs = [
-    {
-      title: 'The Future of Leadership',
-      description: 'Exploring the evolving landscape of leadership in the 21st century.',
-      author: 'John Doe',
-      date: 'February 25, 2025',
-      image: '/img/home.png',
-    },
-    {
-      title: 'Empowering Women Leaders',
-      description: 'How mentorship and support are shaping the next generation of women leaders.',
-      author: 'Jane Smith',
-      date: 'March 5, 2025',
-      image:'/img/ourleader.png'
-    },
-    {
-      title: 'Innovation in Leadership',
-      description: 'The role of technology and research in developing future leaders.',
-      author: 'Michael Johnson',
-      date: 'March 12, 2025',
-      Image: '/img/ourinitiative.png'
-    },
-    {
-      title: 'Building Inclusive Workplaces',
-      description: 'Strategies to foster inclusivity and diversity in corporate environments.',
-      author: 'Sarah Lee',
-      date: 'March 18, 2025',
-      image: '/img/ourinitiative.png',
-    },
-    {
-      title: 'The Role of Mentorship in Career Growth',
-      description: 'How mentorship can accelerate professional development and success.',
-      author: 'David Brown',
-      date: 'March 22, 2025',
-      image: '/img/logo.png',
-    },
-    {
-      title: 'Sustainable Leadership Practices',
-      description: 'Exploring leadership strategies that promote sustainability and long-term impact.',
-      author: 'Emma Wilson',
-      date: 'March 28, 2025',
-      image: '/img/home.png',
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  console.log("🚀 ~ Blog ~ blogs:", blogs)
+
+  useEffect(() => {
+    async function fetchBlogs() {
+      try {
+        const data = await client.fetch(`
+          *[_type == "blogPost"]{
+            title,
+            description,
+            author,
+            date,
+            "image": mainImage.asset->url
+          }
+        `);
+        setBlogs(data);
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+      }
     }
-  ];
+    fetchBlogs();
+  }, []);
+  // const blogs = [
+  //   {
+  //     title: 'The Future of Leadership',
+  //     description: 'Exploring the evolving landscape of leadership in the 21st century.',
+  //     author: 'John Doe',
+  //     date: 'February 25, 2025',
+  //     image: '/img/home.png',
+  //   },
+  //   {
+  //     title: 'Empowering Women Leaders',
+  //     description: 'How mentorship and support are shaping the next generation of women leaders.',
+  //     author: 'Jane Smith',
+  //     date: 'March 5, 2025',
+  //     image:'/img/ourleader.png'
+  //   },
+  //   {
+  //     title: 'Innovation in Leadership',
+  //     description: 'The role of technology and research in developing future leaders.',
+  //     author: 'Michael Johnson',
+  //     date: 'March 12, 2025',
+  //     Image: '/img/ourinitiative.png'
+  //   },
+  //   {
+  //     title: 'Building Inclusive Workplaces',
+  //     description: 'Strategies to foster inclusivity and diversity in corporate environments.',
+  //     author: 'Sarah Lee',
+  //     date: 'March 18, 2025',
+  //     image: '/img/ourinitiative.png',
+  //   },
+  //   {
+  //     title: 'The Role of Mentorship in Career Growth',
+  //     description: 'How mentorship can accelerate professional development and success.',
+  //     author: 'David Brown',
+  //     date: 'March 22, 2025',
+  //     image: '/img/logo.png',
+  //   },
+  //   {
+  //     title: 'Sustainable Leadership Practices',
+  //     description: 'Exploring leadership strategies that promote sustainability and long-term impact.',
+  //     author: 'Emma Wilson',
+  //     date: 'March 28, 2025',
+  //     image: '/img/home.png',
+  //   }
+  // ];
 
   return (
     <div className="sm:p-10 p-2">
@@ -70,7 +104,9 @@ export default function Blog() {
             <CardContent>
               <h2 className="text-2xl font-semibold pt-4">{blog.title}</h2>
               <p className="mt-2 text-gray-700">{blog.description}</p>
-              <p className="mt-4 text-sm text-gray-500">By {blog.author} - {blog.date}</p>
+              {/* <p className="mt-4 text-sm text-gray-500">By {blog.author} - {blog.date}</p> */}
+              <p className="mt-4 text-sm text-gray-500">By {blog.author} - {new Date(blog.date).toDateString()}</p>
+
             </CardContent>
           </Card>
         ))}

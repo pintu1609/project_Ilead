@@ -16,7 +16,7 @@ const Contact: React.FC<ContactProps> = () => {
         objectFit='cover'
         quality={100}
         className={style.backgroundImages} />
-      <div className='flex flex-col gap-6 sm:w-1/4  z-10 sm:ml-40 ml-4 mt-40'>
+      <div className='flex flex-col gap-6 sm:w-1/4  z-10 sm:ml-40 m-4 mt-40'>
         <h3 className='text-4xl text-white'>CONTACT US</h3>
         <p className='text-xl text-white'>Connect with a MAXHUB expert and get the best solution tailored to your unique requirements.</p>
         </div>
