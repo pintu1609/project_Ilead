@@ -25,6 +25,27 @@ export default function Blog() {
       date: 'March 12, 2025',
       Image: '/img/ourinitiative.png'
     },
+    {
+      title: 'Building Inclusive Workplaces',
+      description: 'Strategies to foster inclusivity and diversity in corporate environments.',
+      author: 'Sarah Lee',
+      date: 'March 18, 2025',
+      image: '/img/ourinitiative.png',
+    },
+    {
+      title: 'The Role of Mentorship in Career Growth',
+      description: 'How mentorship can accelerate professional development and success.',
+      author: 'David Brown',
+      date: 'March 22, 2025',
+      image: '/img/logo.png',
+    },
+    {
+      title: 'Sustainable Leadership Practices',
+      description: 'Exploring leadership strategies that promote sustainability and long-term impact.',
+      author: 'Emma Wilson',
+      date: 'March 28, 2025',
+      image: '/img/home.png',
+    }
   ];
 
   return (
@@ -42,7 +63,10 @@ export default function Blog() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         {blogs.map((blog, index) => (
           <Card key={index} className=" shadow-lg">
-            <Image src={blog.image || '/img/home.png'} alt={blog.title} width={500} height={200} className="rounded-md" />
+          <div className='h-64'>
+          <Image src={blog.image || '/img/home.png'} alt={blog.title} width={500} height={200} className="rounded-md" />
+
+          </div>
             <CardContent>
               <h2 className="text-2xl font-semibold pt-4">{blog.title}</h2>
               <p className="mt-2 text-gray-700">{blog.description}</p>
