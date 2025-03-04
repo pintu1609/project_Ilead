@@ -6,7 +6,7 @@ const Leaderdes: React.FC<LeaderdesProps> = () => {
  
 
     return (
-      <div className="p-10">
+      <div className="sm:p-10 p-2">
       <Head>
         <title>Our Leaders - ILead Global Foundation</title>
         <meta name="description" content="Meet the inspiring leaders of ILead Global Foundation who drive positive change." />

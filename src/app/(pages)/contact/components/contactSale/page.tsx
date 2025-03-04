@@ -41,14 +41,14 @@ const ContactSale = () => {
 
     console.log("🚀 ~ ContactSale ~ values:", values)
     return (
-        <div className="p-6 w-3/5 ">
+        <div className="p-6 sm:w-3/5 ">
 
             <h1 className="text-3xl mb-8 text-center">Contact Us</h1>
             <p className="mb-16 text-center text-unbold">If you experience any technical challenges or require assistance following your purchase, feel free to connect with our technical support.</p>
             <form onSubmit={handleSubmit}>
 
-                <div className='flex justify-between gap-14'>
-                    <div className="mb-4 w-1/2">
+                <div className='sm:flex justify-between gap-14'>
+                    <div className="mb-4 sm:w-1/2">
                         <label htmlFor="first-name" className="block text-sm font-medium text-[#848484]"><span className='text-[#fa8481]'>*</span> First Name</label>
                         <input type="text" id="first-name" name="first-name"
                             className={`mt-1 block w-full rounded-md shadow-sm border ${errors['first-name'] && touched['first-name'] && typeof errors['first-name'] === "string" ? "border-red-500" : "border-[#b8babc]"}   bg-[#fdfdfd] focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-10 px-[15px] pt-[5px] focus:text-[#b8babc]`}
@@ -58,7 +58,7 @@ const ContactSale = () => {
                         />
                     </div>
 
-                    <div className="mb-4 w-1/2">
+                    <div className="mb-4 sm:w-1/2">
                         <label htmlFor="last-name" className="block text-sm font-medium text-[#848484]"><span className='text-[#fa8481]'>*</span> Last Name</label>
                         <input type="text" id="last-name" name="last-name"
                             className={`mt-1 block w-full rounded-md shadow-sm border ${errors['last-name'] && touched['last-name'] && typeof errors['last-name'] === "string" ? "border-red-500" : "border-[#b8babc]"}   bg-[#fdfdfd] focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-10 px-[15px] pt-[5px] focus:text-[#b8babc]`}
@@ -69,10 +69,10 @@ const ContactSale = () => {
                     </div>
 
                 </div>
-                <div className='flex justify-between gap-14'>
+                <div className='sm:flex justify-between gap-14'>
 
 
-                    <div className="mb-4 w-1/2">
+                    <div className="mb-4 sm:w-1/2">
                         <label htmlFor="company" className="block text-sm font-medium text-[#848484]"><span className='text-[#fa8481]'>*</span> Company</label>
                         <input type="text" id="company" name="company"
                             className={`mt-1 block w-full rounded-md shadow-sm border ${errors.company && touched.company && typeof errors.company === "string" ? "border-red-500" : "border-[#b8babc]"}   bg-[#fdfdfd] focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-10 px-[15px] pt-[5px] focus:text-[#b8babc]`}
@@ -81,7 +81,7 @@ const ContactSale = () => {
                             onBlur={handleBlur}
                         /></div>
 
-                    <div className="mb-4 w-1/2">
+                    <div className="mb-4 sm:w-1/2">
                         <label htmlFor="email" className="block text-sm font-medium text-[#848484]"><span className='text-[#fa8481]'>*</span> Email</label>
                         <input type="email" id="email" name="email"
                             className={`mt-1 block w-full rounded-md shadow-sm border ${errors.email && touched.email && typeof errors.email === "string" ? "border-red-500" : "border-[#b8babc]"}   bg-[#fdfdfd] focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-10 px-[15px] pt-[5px] focus:text-[#b8babc]`}
@@ -93,10 +93,10 @@ const ContactSale = () => {
 
                 </div>
 
-                <div className='flex justify-between gap-10'>
+                <div className='sm:flex justify-between gap-10'>
 
 
-                    <div className="mb-4 w-1/3">
+                    <div className="mb-4 sm:w-1/3">
                         <label htmlFor="mobile-phone" className="block text-sm font-medium text-[#848484]">Mobile Phone</label>
                         <input type="tel" id="mobile-phone" name="mobile-phone"
                             className={`mt-1 block w-full rounded-md shadow-sm border ${errors['mobile-phone'] && touched['mobile-phone'] && typeof errors['mobile-phone'] === "string" ? "border-red-500" : "border-[#b8babc]"}   bg-[#fdfdfd] focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-10 px-[15px] pt-[5px] focus:text-[#b8babc]`}
@@ -105,7 +105,7 @@ const ContactSale = () => {
                             onBlur={handleBlur}
                         />                        </div>
 
-                    <div className="mb-4 w-1/3">
+                    <div className="mb-4 sm:w-1/3">
                         <label htmlFor="country" className="block text-sm font-medium text-[#848484]"><span className='text-[#fa8481]'>*</span> Country / Region</label>
                         <Select id="country" name="country" options={options}
                             className={`mt-1 block w-full rounded-md shadow-sm border ${errors['country'] && touched['country'] && typeof errors['country'] === "string" ? "border-red-500" : "border-[#b8babc]"}   bg-[#fdfdfd] focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-10  focus:text-[#b8babc]`}
@@ -118,7 +118,7 @@ const ContactSale = () => {
                         </Select>
                     </div>
 
-                    <div className="mb-4 w-1/3">
+                    <div className="mb-4 sm:w-1/3">
                         <label htmlFor="city" className="block text-sm font-medium text-[#848484]"> City</label>
                         <input type="text" id="city" name="city"
                             className={`mt-1 block w-full rounded-md shadow-sm border ${errors['city'] && touched['city'] && typeof errors['city'] === "string" ? "border-red-500" : "border-[#b8babc]"}   bg-[#fdfdfd] focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-10 px-[15px] pt-[5px] focus:text-[#b8babc]`}
@@ -167,9 +167,9 @@ const ContactSale = () => {
 
 
 
-                <div className='flex justify-between gap-14'>
+                <div className='sm:flex justify-between gap-14'>
 
-                    <div className="mb-4 w-1/2">
+                    <div className="mb-4 sm:w-1/2">
                         <label htmlFor="industry" className="block text-sm font-medium text-[#848484]"><span className='text-[#fa8481]'>*</span> Industry </label>
                         <select
                             id="industry"
@@ -186,7 +186,7 @@ const ContactSale = () => {
                         </select>
                     </div>
 
-                    <div className="mb-4 w-1/2">
+                    <div className="mb-4 sm:w-1/2">
                         <label htmlFor="account-category" className="block text-sm font-medium text-[#848484]"><span className='text-[#fa8481]'>*</span> Account Category</label>
                         <select id="account-category" name="account-category"
                             className={`mt-1 block w-full rounded-md shadow-sm border ${errors['account-category'] && touched['account-category'] && typeof errors['account-category'] === "string" ? "border-red-500" : "border-[#b8babc]"}   bg-[#fdfdfd] focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-10 px-[15px] pt-[5px] focus:text-[#b8babc]`}
@@ -215,8 +215,8 @@ const ContactSale = () => {
 
 
                 <p className="text-xl font-unbold text-[#848484] my-8"><span className='text-[#fa8481]'>*</span> Subscription</p>
-                <div className="mb-4 flex">
-                    <div className="flex items-start w-1/2">
+                <div className="mb-4 sm:flex sm:flex-row flex flex-col gap-2">
+                    <div className="flex items-start sm:w-1/2">
                         <input
                             type="radio"
                             id="subscription-yes"

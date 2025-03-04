@@ -50,8 +50,8 @@ const Footer = () => {
 
     return (
         <footer className="bg-[#1c1c1d] text-white relative bottom-0 ">
-            <div className="container mx-auto flex flex-col items-center px-4 w-4/5 py-6 ">
-                <p className="text-4xl mb-2 py-16">GET CONNECT WITH US</p>
+            <div className="container mx-auto flex flex-col items-center px-4 sm:w-4/5 w-full py-6 ">
+                <p className="text-4xl mb-2 py-16 text-center">GET CONNECT WITH US</p>
                 <div className="flex gap-4">
                     <Link href="https://www.facebook.com" passHref className='bg-white p-1 rounded rounded-full hover:bg-blue-500'>
                         <React.Fragment>
@@ -101,8 +101,8 @@ const Footer = () => {
 
                 <div className='h-[1px] w-full bg-white my-10'></div>
 
-                <div className='flex  justify-between w-full'>
-                    <div className='flex gap-4 flex-col w-1/4'>
+                <div className='sm:flex sm:flex-row  flex flex-col  sm:justify-between align-center w-full  sm:gap-0  gap-8'>
+                    <div className='flex gap-4 flex-col sm:w-1/4 w-full'>
                         <h3 className='text-white text-lg'>Company</h3>
                         <div className='flex gap-10'>
                             <div className='flex flex-col gap-2'>
@@ -135,7 +135,7 @@ const Footer = () => {
 
                     </div>
 
-                    <div className='flex gap-6 flex-col w-1/3'>
+                    <div className='flex gap-6 flex-col sm:w-1/3 w-full'>
                         <div className='flex'>
                             <input type="email" placeholder="Enter your E-mail Address"
                                 value={email}
@@ -157,7 +157,7 @@ const Footer = () => {
 
                         <p className='text-[#5e5e5e] text-sm'>Sign up to receive Ilead marketing emails. You can modify your subscription or unsubscribe at any time.</p>
                     </div>
-                    <div className='flex flex-col gap-2 w-1/4'>
+                    <div className='flex flex-col gap-2 sm:w-1/4 w-full'>
                         <p className='text-[#5e5e5e] text-sm'>Address: C-245, 1st Floor, Defence Colony, New Delhi 110024</p>
                         <p className='text-[#5e5e5e] text-sm'>Phone: +011-35688106</p>
                     </div>

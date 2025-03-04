@@ -49,7 +49,7 @@ export default function Blog() {
   ];
 
   return (
-    <div className="p-10">
+    <div className="sm:p-10 p-2">
       <Head>
         <title>Blog - ILead Global Foundation</title>
         <meta name="description" content="Read insightful articles from the leaders at ILead Global Foundation." />
@@ -63,7 +63,7 @@ export default function Blog() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         {blogs.map((blog, index) => (
           <Card key={index} className=" shadow-lg">
-          <div className='h-64'>
+          <div className='sm:h-64 '>
           <Image src={blog.image || '/img/home.png'} alt={blog.title} width={500} height={200} className="rounded-md" />
 
           </div>

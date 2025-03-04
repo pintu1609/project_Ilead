@@ -6,7 +6,7 @@ const Initiativesdes: React.FC<InitiativesdesProps> = () => {
  
 
     return (
-<div className="p-10">
+<div className="sm:p-10 p-2">
       <Head>
         <title>Our Initiatives - ILead Global Foundation</title>
         <meta name="description" content="Explore the transformative initiatives of ILead Global Foundation." />

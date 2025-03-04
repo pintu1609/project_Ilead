@@ -6,7 +6,7 @@ interface AboutProps {
 const About: React.FC<AboutProps> = () => {
  
   return (
-    <div className="p-10">
+    <div className="sm:p-10 p-2">
       <Head>
         <title>About Us - ILead Global Foundation</title>
         <meta name="description" content="Learn more about ILead Global Foundation, our mission, vision, and impact." />

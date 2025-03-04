@@ -7,13 +7,13 @@ const Homedetails: React.FC<HomedetailsProps> = () => {
  
 
 return(
-  <div className="p-10">
+  <div className="sm:p-10 p-2">
   <Head>
     <title>Home - ILead Global Foundation</title>
     <meta name="description" content="Welcome to ILead Global Foundation, empowering leaders for a better tomorrow." />
   </Head>
 
-  <h1 className="text-5xl font-bold text-center">Welcome to ILead Global Foundation</h1>
+  <h1 className="sm:text-5xl text-4xl font-bold text-center">Welcome to ILead Global Foundation</h1>
   <p className="mt-6 text-lg">
     ILead Global Foundation is dedicated to shaping the future by nurturing, developing, and empowering individuals to become visionary leaders. Since our establishment in 2019, we have provided advanced mentorship programs that create a profound impact on society. Our platform is designed to equip scholars, entrepreneurs, and political leaders with the skills and resources they need to thrive in a rapidly evolving world.
   </p>
