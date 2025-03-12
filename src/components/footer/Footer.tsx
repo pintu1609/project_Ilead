@@ -115,25 +115,25 @@ const Footer = () => {
 
                         <p className=' text-[#5e5e5e] text-sm hover:text-white' >Leader</p>
                         </Link>
-                        {/* <Link href="/contact" passHref>
+                        <Link href="/contact" passHref>
 
                             <p className='text-[#5e5e5e] text-sm hover:text-white'>Contact US</p>
-                        </Link> */}
+                        </Link>
                         </div>
                         <div className='flex flex-col gap-2'>
                         <Link href="/initiatives" passHref>
 
                         <p className=' text-[#5e5e5e] text-sm hover:text-white' >Initiatives</p>
                         </Link>
-                        {/* <Link href="/blog" passHref>
+                        <Link href="/blog" passHref>
 
                         <p className=' text-[#5e5e5e] text-sm hover:text-white' >Blog</p>
                         </Link>
-                         */}
-                          <Link href="/contact" passHref>
+                        
+                          {/* <Link href="/contact" passHref>
 
                             <p className='text-[#5e5e5e] text-sm hover:text-white'>Contact US</p>
-                          </Link>
+                          </Link> */}
                         </div>
                         </div>
 
