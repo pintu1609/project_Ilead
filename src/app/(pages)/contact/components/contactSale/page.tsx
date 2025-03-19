@@ -44,7 +44,7 @@ const ContactSale = () => {
         <div className="p-6 sm:w-3/5 ">
 
             <h1 className="text-3xl mb-8 text-center">Contact Us</h1>
-            <p className="mb-16 text-center text-unbold">If you experience any technical challenges or require assistance following your purchase, feel free to connect with our technical support.</p>
+            {/* <p className="mb-16 text-center text-unbold">If you experience any technical challenges or require assistance following your purchase, feel free to connect with our technical support.</p> */}
             <form onSubmit={handleSubmit}>
 
                 <div className='sm:flex justify-between gap-14'>
@@ -257,7 +257,7 @@ const ContactSale = () => {
                     </label>
                 </div>
 
-                <button type="submit" className="flex py-2 px-10 bg-blue-500 text-white rounded-md hover:bg-blue-600 mx-auto">
+                <button type="submit" className="flex py-2 px-10 bg-[#0169a7] text-white rounded-md hover:bg-[#0169a7] mx-auto">
                     {loading ? <BeatLoader color="white" size={10} /> : "Submit"}
                 </button>
             </form>

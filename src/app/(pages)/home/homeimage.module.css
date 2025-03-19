@@ -1,7 +1,7 @@
 .container{
     position: relative;
-    width: 100vw;
-    height: 90vh;
+    width: 3/4;
+    height: 80vh;
 }
 .backgroundImages{
     z-index: 1;
