@@ -129,7 +129,7 @@ const ContactSale = () => {
 
                 </div>
 
-                <div className="mb-10">
+                {/* <div className="mb-10">
                     <p className="block text-xl font-unbold text-[#848484] my-6">
                         <span className='text-[#fa8481]'>*</span> Product Category
                     </p>
@@ -163,11 +163,11 @@ const ContactSale = () => {
                             </label>
                         ))}
                     </div>
-                </div>
+                </div> */}
 
 
 
-                <div className='sm:flex justify-between gap-14'>
+                {/* <div className='sm:flex justify-between gap-14'>
 
                     <div className="mb-4 sm:w-1/2">
                         <label htmlFor="industry" className="block text-sm font-medium text-[#848484]"><span className='text-[#fa8481]'>*</span> Industry </label>
@@ -200,7 +200,7 @@ const ContactSale = () => {
                             <option value="enduser">End User</option>
                         </select>
                     </div>
-                </div>
+                </div> */}
                 <div className="my-8">
                     <label htmlFor="message" className="block text-xl font-unbold text-[#848484]">Message</label>
                     <textarea id="message" name="message"
