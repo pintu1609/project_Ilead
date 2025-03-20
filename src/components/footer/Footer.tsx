@@ -2,14 +2,21 @@
 import Link from 'next/link';
 import React, { useCallback, useEffect, useState } from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaEnvelope } from 'react-icons/fa';
-import { MdKeyboardArrowUp } from 'react-icons/md';
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import { BeatLoader } from 'react-spinners';
+import { set } from 'zod';
 const Footer = () => {
 
     const [email, setEmail] = useState('');
     const [isEmailInvalid, setIsEmailInvalid] = useState(false);
     const [loading, setLoading] = useState(false);
-    
+
+    const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
+    const [isResearchDropdownOpen, setIsResearchDropdownOpen] = useState(false);
+    const [isInitiativesDropdownOpen, setIsInitiativesDropdownOpen] = useState(false);
+
+
+
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
         // Simple email validation
@@ -106,35 +113,141 @@ const Footer = () => {
                         <h3 className='text-white text-lg'>Company</h3>
                         <div className='flex gap-10'>
                             <div className='flex flex-col gap-2'>
-                        <Link href="/about" passHref>
+                                <div className='flex flex-col'>
+                                    <div className='flex gap-2 items-center' onClick={() => {
+                                        setIsResearchDropdownOpen(!isResearchDropdownOpen)
+                                        setIsAboutDropdownOpen(false)
+                                        setIsInitiativesDropdownOpen(false)
 
-                            <p className=' text-[#5e5e5e] text-sm hover:text-white' >About</p>
-                        </Link>
-                        
-                        <Link href="/leader" passHref>
+                                    }}>
 
-                        <p className=' text-[#5e5e5e] text-sm hover:text-white' >Leader</p>
-                        </Link>
-                        {/* <Link href="/contact" passHref>
+                                        <p className=' text-[#5e5e5e] text-sm hover:text-white' >Research</p>
+                                        {isResearchDropdownOpen ?
+                                            <MdKeyboardArrowUp size={20} color="#5e5e5e" /> :
+                                            <MdKeyboardArrowDown size={20} color="#5e5e5e" />}
+                                    </div>
+                                    <div>
+                                        {isResearchDropdownOpen && (
+                                            <div className="flex flex-col gap-2 px-4 py-2">
+                                                <Link href="/research?type=expertspeak" className="text-[#5e5e5e] text-sm  py-0 hover:underline" onClick={() => {
+                                                    setIsResearchDropdownOpen(false);
+                                                }}>
+                                                    Expert Speak
+                                                </Link>
+                                                <Link href="/research?type=commentaries" className="text-[#5e5e5e] text-sm  py-0 hover:underline" onClick={() => {
+                                                    setIsResearchDropdownOpen(false);
+                                                }}>
+                                                    Commentaries
+                                                </Link>
+                                                <Link href="/research?type=youngvoice" className="text-[#5e5e5e] text-sm  py-0 hover:underline" onClick={() => {
+                                                    setIsResearchDropdownOpen(false);
+                                                }}>
+                                                    Young Voices
+                                                </Link>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
 
-                            <p className='text-[#5e5e5e] text-sm hover:text-white'>Contact US</p>
-                        </Link> */}
-                        </div>
-                        <div className='flex flex-col gap-2'>
-                        <Link href="/initiatives" passHref>
+                                <div className='flex flex-col'>
+                                    <div className='flex gap-2 items-center' onClick={() => {
+                                        setIsInitiativesDropdownOpen(!isInitiativesDropdownOpen)
+                                        setIsAboutDropdownOpen(false)
+                                        setIsResearchDropdownOpen(false)
+                                    }}>
+                                        <p className=' text-[#5e5e5e] text-sm hover:text-white'
+                                        >Initiatives</p>
+                                        {isInitiativesDropdownOpen ?
+                                            <MdKeyboardArrowUp size={20} color="#5e5e5e" /> :
+                                            <MdKeyboardArrowDown size={20} color="#5e5e5e" />}
 
-                        <p className=' text-[#5e5e5e] text-sm hover:text-white' >Initiatives</p>
-                        </Link>
-                        {/* <Link href="/blog" passHref>
+                                    </div>
+
+                                    <div>
+                                        {isInitiativesDropdownOpen && (
+                                            <div className="flex flex-col gap-2 px-4 py-2">
+                                                <Link href="/initiatives?type=initiatives" className="text-[#5e5e5e] text-sm py-0 hover:underline" onClick={() => {
+                                                    setIsInitiativesDropdownOpen(false)
+                                                }}>
+                                                    Initiatives
+                                                </Link>
+                                                <Link href="/initiatives?type=featured" className="text-[#5e5e5e] text-sm py-0 hover:underline" onClick={() => {
+                                                    setIsInitiativesDropdownOpen(false)
+
+                                                }}>
+                                                    Featured
+                                                </Link>
+                                                <Link href="/initiatives?type=updated" className="text-[#5e5e5e] text-sm py-0 hover:underline" onClick={() => {
+                                                    setIsInitiativesDropdownOpen(false)
+                                                }}>
+                                                    All Updated
+
+                                                </Link>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                </div>
+
+
+
+
+                                <Link href="/contact" passHref>
+
+                                    <p className='text-[#5e5e5e] text-sm hover:text-white'>Contact US</p>
+                                </Link>
+                            </div>
+                            <div className='flex flex-col gap-2'>
+                                <div className='flex flex-col'>
+                                <div className='flex gap-2 items-center' onClick={() => {
+                                    setIsAboutDropdownOpen(!isAboutDropdownOpen)
+                                    setIsInitiativesDropdownOpen(false)
+                                    setIsResearchDropdownOpen(false)
+                                }}>
+                                    <p className=' text-[#5e5e5e] text-sm hover:text-white' >About</p>
+                                    {isAboutDropdownOpen ?
+                                        <MdKeyboardArrowUp size={20} color="#5e5e5e" /> :
+                                        <MdKeyboardArrowDown size={20} color="#5e5e5e" />}
+                                </div>
+                                <div>
+                                {isAboutDropdownOpen && (
+                    <div className="flex flex-col gap-2 px-4 py-2">
+                      <Link href="/about/components/company" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                        setIsAboutDropdownOpen(false)
+                      }}>
+                        Company
+                      </Link>
+                      <Link href="/about/components/team" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                        setIsAboutDropdownOpen(false)
+                      }}>
+                        Team
+                      </Link>
+                      <Link href="/about/components/careers" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                        setIsAboutDropdownOpen(false)
+                      }}>
+                        Careers
+                      </Link>
+                    </div>
+                  )}
+                                    </div>
+
+                                </div>
+                                
+
+                                <Link href="/leader" passHref>
+
+                                    <p className=' text-[#5e5e5e] text-sm hover:text-white' >Leader</p>
+                                </Link>
+                                {/* <Link href="/blog" passHref>
 
                         <p className=' text-[#5e5e5e] text-sm hover:text-white' >Blog</p>
                         </Link> */}
-                        
-                          <Link href="/contact" passHref>
+
+                                {/* <Link href="/contact" passHref>
 
                             <p className='text-[#5e5e5e] text-sm hover:text-white'>Contact US</p>
-                          </Link>
-                        </div>
+                          </Link> */}
+                            </div>
                         </div>
 
                     </div>

@@ -146,7 +146,9 @@ const Navbar = () => {
               <div key={link.url} className="flex flex-col items-left">
                 <button
                   className="text-lg text-white text-left"
-                  onClick={() => setIsResearchDropdownOpen(!isResearchDropdownOpen)}
+                  onClick={() => {setIsResearchDropdownOpen(!isResearchDropdownOpen)
+                    setIsAboutDropdownOpen(false); setIsInitiativesDropdownOpen(false); 
+                  }}
                 >
                   <div className="flex items-center justify-between">
                     <p>                 Research </p>
@@ -185,7 +187,9 @@ const Navbar = () => {
                 <div key={link.url} className="flex flex-col items-left">
                   <button
                     className="text-lg text-white text-left"
-                    onClick={() => setIsAboutDropdownOpen(!isAboutDropdownOpen)}
+                    onClick={() => {setIsAboutDropdownOpen(!isAboutDropdownOpen)
+                      setIsResearchDropdownOpen(false); setIsInitiativesDropdownOpen(false);
+                    }}
                   >
                     <div className="flex items-center justify-between">
                       <p>                  About Us </p>
@@ -224,7 +228,9 @@ const Navbar = () => {
                   <div key={link.url} className="flex flex-col items-left">
                     <button
                       className="text-lg text-white text-left"
-                      onClick={() => setIsInitiativesDropdownOpen(!isInitiativesDropdownOpen)}
+                      onClick={() => {setIsInitiativesDropdownOpen(!isInitiativesDropdownOpen)
+                        setIsAboutDropdownOpen(false); setIsResearchDropdownOpen(false);
+                      }}
                     >
                       <div className="flex items-center justify-between">
                         <p> Initiatives </p>
@@ -237,7 +243,7 @@ const Navbar = () => {
                     {/* Mobile Dropdown */}
                     {isInitiativesDropdownOpen && (
                       <div className="flex flex-col gap-2 px-4 py-2">
-                        <Link href="/initiatives?type=inItiatives" className="text-lg text-white py-0 hover:underline" onClick={() => {
+                        <Link href="/initiatives?type=initiatives" className="text-lg text-white py-0 hover:underline" onClick={() => {
                           setIsInitiativesDropdownOpen(false)
                           setIsMobileMenuOpen(false)
                         }}>

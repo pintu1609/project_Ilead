@@ -27,21 +27,21 @@ export default function BlogHorizontal({ title, abstract, author, date, image, s
       <Link href={`/blog/${slug ?? ""}`} passHref>
         <Card className="border-none flex flex-col md:flex-row rounded-none items-center overflow-hidden bg-white">
           {/* Blog Image */}
-          <div className="w-64 h-48 relative">
+          <div className="md:w-96 w-full h-48 relative">
             <Image
               src={image || "/img/home.png"}
               alt={title}
-              layout="fill"
-              objectFit="cover"
-              className=""
+              width={300} // Set explicit width in desktop view
+              height={160} // Set explicit height in desktop view
+              className="w-full h-full "
             />
           </div>
 
           {/* Blog Content */}
-          <CardContent className="p-6 flex flex-col justify-between">
-            <h2 className="text-xl font-semibold truncate">{title}</h2>
-            <p className="mt-2 text-gray-700 line-clamp-2">{abstract}</p>
-            <p className="mt-4 text-sm text-gray-500">
+          <CardContent className="p-4 md:p-6 flex flex-col justify-between w-full md:w-none items-start">
+            <h2 className="text-lg md:text-xl font-semibold truncate w-full">{title}</h2>
+            <p className="mt-2 text-sm md:text-base text-gray-700 line-clamp-2 w-full">{abstract}</p>
+            <p className="mt-4 text-xs md:text-sm text-gray-500 w-full">
               By {author} - {new Date(date).toDateString()}
             </p>
           </CardContent>

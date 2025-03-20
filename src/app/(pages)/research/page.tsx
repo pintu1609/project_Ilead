@@ -3,6 +3,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import client from "../../../../sanityClient";
 import { useSearchParams } from "next/navigation";
 import BlogHorizontal from "@/components/blogs/BlogHorizontal";
+import { ClipLoader } from "react-spinners";
 
 interface Blog {
   title: string;
@@ -57,8 +58,10 @@ const ResearchContent: React.FC = () => {
     <div className="md:mx-10 mx-2 my-2">
       {/* Header Section */}
       <div className="w-full text-white ">
+        <div className="bg-[#f5f5f5] mx-2  mb-4">
 
         <h3 className="text-4xl font-bold text-center text-black py-8 ">{formattedTitle}</h3>
+        </div>
 
         {/* Blog Component (Shows Selected Type) */}
         <div className="w-full">
@@ -87,7 +90,14 @@ const ResearchContent: React.FC = () => {
 
 const Research: React.FC = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div> <ClipLoader
+      color="#000000"
+      // loading={loading}
+      // cssOverride={override}
+      size={150}
+      aria-label="Loading Spinner"
+      data-testid="loader"
+    /> </div>}>
       <ResearchContent />
     </Suspense>
   );
