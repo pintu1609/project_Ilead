@@ -5,6 +5,11 @@ export const links = [
       title: ' Ilead',
       links: [
         {
+          name: 'Research',
+          url: 'research',
+          
+        },
+        {
           name: 'About Us',
           url: 'about',
           

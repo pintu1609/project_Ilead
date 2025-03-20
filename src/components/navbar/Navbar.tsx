@@ -11,6 +11,9 @@ const Navbar = () => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
+  const [isResearchDropdownOpen, setIsResearchDropdownOpen] = useState(false);
+  const [isInitiativesDropdownOpen, setIsInitiativesDropdownOpen] = useState(false);
+
 
   const navbarBgColor = ["/home", "/contact"].includes(pathname) ? "bg-transparent" : "bg-transparent";
 
@@ -29,36 +32,88 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex gap-10 ml-10">
             {links[0].links.map((link) =>
-              link.name === "About Us" ? (
+              link.name === "Research" ? (
                 <div key={link.url} className="relative group">
                   <button
                     className="text-xl text-black hover:underline hover:underline-offset-[20px] decoration-[4px] decoration-[#2b5371] hover:text-blue-300"
-                    onClick={() => setIsAboutDropdownOpen(!isAboutDropdownOpen)}
+                    onClick={() => setIsResearchDropdownOpen(!isResearchDropdownOpen)}
                   >
-                    About Us
+                    Research
                   </button>
                   {/* Dropdown Content */}
                   <div
-                    className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
-                      isAboutDropdownOpen ? "opacity-100" : ""
-                    }`}
+                    className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isResearchDropdownOpen ? "opacity-100" : ""
+                      }`}
                   >
-                    <Link href="/about/components/company" className="block px-4 py-2 text-black hover:bg-gray-200">
-                      Company
+                    <Link href="/research?type=expertspeak" className="block px-4 py-2 text-black hover:bg-gray-200">
+                      Expert Speak
                     </Link>
-                    <Link href="/about/components/team" className="block px-4 py-2 text-black hover:bg-gray-200">
-                      Team
+                    <Link href="/research?type=commentaries" className="block px-4 py-2 text-black hover:bg-gray-200">
+                      Commentaries
+
                     </Link>
-                    <Link href="/about/components/careers" className="block px-4 py-2 text-black hover:bg-gray-200">
-                      Careers
+                    <Link href="/research?type=youngvoice" className="block px-4 py-2 text-black hover:bg-gray-200">
+                      Young Voices
+
                     </Link>
                   </div>
                 </div>
-              ) : (
-                <Link key={link.url} href={`/${link.url}`} className="text-xl text-black hover:underline hover:underline-offset-[20px] decoration-[4px] decoration-[#2b5371] hover:text-blue-300">
-                  {link.name}
-                </Link>
-              )
+              ) :
+                link.name === "About Us" ? (
+                  <div key={link.url} className="relative group">
+                    <button
+                      className="text-xl text-black hover:underline hover:underline-offset-[20px] decoration-[4px] decoration-[#2b5371] hover:text-blue-300"
+                      onClick={() => setIsAboutDropdownOpen(!isAboutDropdownOpen)}
+                    >
+                      About Us
+                    </button>
+                    {/* Dropdown Content */}
+                    <div
+                      className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isAboutDropdownOpen ? "opacity-100" : ""
+                        }`}
+                    >
+                      <Link href="/about/components/company" className="block px-4 py-2 text-black hover:bg-gray-200">
+                        Company
+                      </Link>
+                      <Link href="/about/components/team" className="block px-4 py-2 text-black hover:bg-gray-200">
+                        Team
+                      </Link>
+                      <Link href="/about/components/careers" className="block px-4 py-2 text-black hover:bg-gray-200">
+                        Careers
+                      </Link>
+                    </div>
+                  </div>
+                ) :
+                  link.name === "Initiatives" ? (
+                    <div key={link.url} className="relative group">
+                      <button
+                        className="text-xl text-black hover:underline hover:underline-offset-[20px] decoration-[4px] decoration-[#2b5371] hover:text-blue-300"
+                        onClick={() => setIsInitiativesDropdownOpen(!isInitiativesDropdownOpen)}
+                      >
+                        Initiatives
+                      </button>
+                      {/* Dropdown Content */}
+                      <div
+                        className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isAboutDropdownOpen ? "opacity-100" : ""
+                          }`}
+                      >
+                        <Link href="/initiatives?type=initiatives" className="block px-4 py-2 text-black hover:bg-gray-200">
+                          Initiatives
+                        </Link>
+                        <Link href="/initiatives?type=featured" className="block px-4 py-2 text-black hover:bg-gray-200">
+                          Featured
+                        </Link>
+                        <Link href="/initiatives?type=updated" className="block px-4 py-2 text-black hover:bg-gray-200">
+                          All Updated
+                        </Link>
+                      </div>
+                    </div>
+                  ) :
+                    (
+                      <Link key={link.url} href={`/${link.url}`} className="text-xl text-black hover:underline hover:underline-offset-[20px] decoration-[4px] decoration-[#2b5371] hover:text-blue-300">
+                        {link.name}
+                      </Link>
+                    )
             )}
           </div>
 
@@ -73,7 +128,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className={`text-white focus:outline-none z-50 ${isMobileMenuOpen ?"fixed top-5 right-5" : ""}`}>
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className={`text-white focus:outline-none z-50 ${isMobileMenuOpen ? "fixed top-5 right-5" : ""}`}>
               {isMobileMenuOpen ? <MdClose size={30} /> : <MdMenu size={30} color="black" />}
             </button>
           </div>
@@ -87,40 +142,129 @@ const Navbar = () => {
             Home
           </Link>
           {links[0].links.map((link) =>
-            link.name === "About Us" ? (
+            link.name === "Research" ? (
               <div key={link.url} className="flex flex-col items-left">
                 <button
                   className="text-lg text-white text-left"
-                  onClick={() => setIsAboutDropdownOpen(!isAboutDropdownOpen)}
+                  onClick={() => setIsResearchDropdownOpen(!isResearchDropdownOpen)}
                 >
                   <div className="flex items-center justify-between">
-                   <p>                  About Us </p>
+                    <p>                 Research </p>
 
-                   {isAboutDropdownOpen ?
-                   <MdKeyboardArrowUp size={30} color="white" />:
-                    <MdKeyboardArrowDown size={30} color="white" />}
+                    {isResearchDropdownOpen ?
+                      <MdKeyboardArrowUp size={30} color="white" /> :
+                      <MdKeyboardArrowDown size={30} color="white" />}
                   </div>
                 </button>
                 {/* Mobile Dropdown */}
-                {isAboutDropdownOpen && (
+                {isResearchDropdownOpen && (
                   <div className="flex flex-col gap-2 px-4 py-2">
-                    <Link href="/about/components/company" className="text-lg text-white py-0 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>
-                      Company
+                    <Link href="/research?type=expertspeak" className="text-lg text-white py-0 hover:underline" onClick={() => {
+                      setIsResearchDropdownOpen(false);
+                      setIsMobileMenuOpen(false)
+                    }}>
+                      Expert Speak
                     </Link>
-                    <Link href="/about/components/team" className="text-lg text-white py-0 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>
-                      Team
+                    <Link href="/research?type=commentaries" className="text-lg text-white py-0 hover:underline" onClick={() => {
+                      setIsResearchDropdownOpen(false);
+                      setIsMobileMenuOpen(false)
+                    }}>
+                      Commentaries
                     </Link>
-                    <Link href="/about/components/careers" className="text-lg text-white py-0 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>
-                      Careers
+                    <Link href="/research?type=youngvoice" className="text-lg text-white py-0 hover:underline" onClick={() => {
+                      setIsResearchDropdownOpen(false);
+                      setIsMobileMenuOpen(false)
+                    }}>
+                      Young Voices
                     </Link>
                   </div>
                 )}
               </div>
-            ) : (
-              <Link key={link.url} href={`/${link.url}`} className="text-lg text-white py-0 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>
-                {link.name}
-              </Link>
-            )
+            ) :
+              link.name === "About Us" ? (
+                <div key={link.url} className="flex flex-col items-left">
+                  <button
+                    className="text-lg text-white text-left"
+                    onClick={() => setIsAboutDropdownOpen(!isAboutDropdownOpen)}
+                  >
+                    <div className="flex items-center justify-between">
+                      <p>                  About Us </p>
+
+                      {isAboutDropdownOpen ?
+                        <MdKeyboardArrowUp size={30} color="white" /> :
+                        <MdKeyboardArrowDown size={30} color="white" />}
+                    </div>
+                  </button>
+                  {/* Mobile Dropdown */}
+                  {isAboutDropdownOpen && (
+                    <div className="flex flex-col gap-2 px-4 py-2">
+                      <Link href="/about/components/company" className="text-lg text-white py-0 hover:underline" onClick={() => {
+                        setIsAboutDropdownOpen(false)
+                        setIsMobileMenuOpen(false)
+                      }}>
+                        Company
+                      </Link>
+                      <Link href="/about/components/team" className="text-lg text-white py-0 hover:underline" onClick={() => {
+                        setIsAboutDropdownOpen(false)
+                        setIsMobileMenuOpen(false)
+                      }}>
+                        Team
+                      </Link>
+                      <Link href="/about/components/careers" className="text-lg text-white py-0 hover:underline" onClick={() => {
+                        setIsAboutDropdownOpen(false)
+                        setIsMobileMenuOpen(false)
+                      }}>
+                        Careers
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              ) :
+                link.name === "Initiatives" ? (
+                  <div key={link.url} className="flex flex-col items-left">
+                    <button
+                      className="text-lg text-white text-left"
+                      onClick={() => setIsInitiativesDropdownOpen(!isInitiativesDropdownOpen)}
+                    >
+                      <div className="flex items-center justify-between">
+                        <p> Initiatives </p>
+
+                        {isInitiativesDropdownOpen ?
+                          <MdKeyboardArrowUp size={30} color="white" /> :
+                          <MdKeyboardArrowDown size={30} color="white" />}
+                      </div>
+                    </button>
+                    {/* Mobile Dropdown */}
+                    {isInitiativesDropdownOpen && (
+                      <div className="flex flex-col gap-2 px-4 py-2">
+                        <Link href="/initiatives?type=inItiatives" className="text-lg text-white py-0 hover:underline" onClick={() => {
+                          setIsInitiativesDropdownOpen(false)
+                          setIsMobileMenuOpen(false)
+                        }}>
+                          Initiatives
+                        </Link>
+                        <Link href="/initiatives?type=featured" className="text-lg text-white py-0 hover:underline" onClick={() => {
+                          setIsInitiativesDropdownOpen(false)
+
+                          setIsMobileMenuOpen(false)
+                        }}>
+                          Featured
+                        </Link>
+                        <Link href="/initiatives?type=updated" className="text-lg text-white py-0 hover:underline" onClick={() => {
+                          setIsInitiativesDropdownOpen(false)
+                          setIsMobileMenuOpen(false)
+                        }}>
+                          All Updated
+
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link key={link.url} href={`/${link.url}`} className="text-lg text-white py-0 hover:underline" onClick={() => setIsMobileMenuOpen(false)}>
+                    {link.name}
+                  </Link>
+                )
           )}
           <Link href="/contact" passHref>
             <button className="mt-0 px-0 py-0 text-white text-lg bg-none rounded hover:bg-none focus:outline-none" onClick={() => setIsMobileMenuOpen(false)}>

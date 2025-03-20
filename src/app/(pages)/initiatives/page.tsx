@@ -1,48 +1,95 @@
 "use client";
-import React, { useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import Blog from '../../../components/blogs/Blog';
+import client from '../../../../sanityClient';
+import { useSearchParams } from 'next/navigation';
+import BlogHorizontal from '@/components/blogs/BlogHorizontal';
 
-const Initiatives: React.FC = () => {
-  const [selectedType, setSelectedType] = useState("initiatives"); // Default type
+
+interface Blog {
+  title: string;
+  abstract: string;
+  author: string;
+  date: string;
+  image: string;
+  slug: string;
+}
+
+const typeDisplayMap: Record<string, string> = {
+  initiatives: "Initiatives",
+  featured:"Featured",
+  updated:"All Updated"
+};
+const InitiativesContent: React.FC = () => {
+  const searchParams = useSearchParams();
+  const initialType = searchParams.get("type") || "initiatives"; // Get type from URL, default to "initiatives"
+
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+
+  const formattedTitle = typeDisplayMap[initialType] || "Initiatives";
+
+  useEffect(() => {
+    async function fetchBlogs() {
+      try {
+        const query = `
+          *[_type == "blogPost" && type == "${initialType}"] | order(date desc) {
+            title,
+            abstract,
+            author,
+            date,
+            "image": mainImage.asset->url,
+            "slug": slug.current
+          }
+        `;
+        const data = await client.fetch(query);
+        setBlogs(data);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    }
+    if(initialType) fetchBlogs();
+  }, [initialType]);
 
   return (
-    <div className="md:mx-10 mx-2 my-2 ">
+    <div className="md:mx-10 mx-2 my-2">
       {/* Header Section */}
-      <div className="bg-[#333333] w-full text-white md:p-6 p-2 h-[calc(100vh-9rem)] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">
-        <h3 className="text-4xl font-bold text-center">Initiatives</h3>
+      <div className=" w-full text-white md:p-6 p-2">
+        <h3 className="text-4xl font-bold text-center text-black py-8">{formattedTitle}</h3>
 
-      <div className='flex md:flex-row flex-col p-6 gap-4 md:gap-0'>
-        {/* Category Selection */}
-        <div className="md:w-1/3 w-full flex flex-col bg-[#212121] p-8 gap-2 h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">
-          <button
-            className={`text-2xl p-2 text-left text-white hover:bg-[#0169a7] ${selectedType === "initiatives" ? "bg-[#0169a7]" : ""}`}
-            onClick={() => setSelectedType("initiatives")}
-          >
-            Initiatives
-          </button>
-          <button
-            className={`text-2xl p-2  text-left text-white hover:bg-[#0169a7] ${selectedType === "featured" ? "bg-[#0169a7]" : ""}`}
-            onClick={() => setSelectedType("featured")}
-          >
-            Featured
-          </button>
-          <button
-            className={`text-2xl p-2 text-left text-white hover:bg-[#0169a7] ${selectedType === "updated" ? "bg-[#0169a7]" : ""}`}
-            onClick={() => setSelectedType("updated")}
-          >
-            All Updated
-          </button>
+         
 
-          
-        </div>
-
-        {/* Blog Component (Shows Selected Type) */}
-        <div className="md:w-2/3 w-full ">
-          <Blog type={selectedType} nums={2} />
-        </div>
-        </div>
+          {/* Blog Component (Shows Selected Type) */}
+          <div className=" w-full ">
+            {blogs.length > 0 ? (
+              <div className="flex flex-col gap-[20px]">
+                {blogs.map(
+                  (blog, index) => (
+                    <BlogHorizontal
+                      key={index} // Ensure unique key
+                      title={blog.title}
+                      abstract={blog.abstract}
+                      author={blog.author}
+                      date={blog.date}
+                      image={blog.image}
+                      slug={blog.slug}
+                    />
+                  )
+                )}
+              </div>
+            ) : (
+              <p className='text-center'>No updated blogs available.</p>
+            )}
+          </div>
       </div>
     </div>
+  );
+};
+
+const Initiatives: React.FC = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <InitiativesContent />
+    </Suspense>
   );
 };
 
