@@ -2,7 +2,7 @@ import React from 'react';
 import style from './contactimage.module.css'
 import Image from 'next/image';
 import ContactSale from './components/contactSale/page';
-import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin, FaTelegram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 interface ContactProps {
 }
@@ -20,7 +20,9 @@ const Contact: React.FC<ContactProps> = () => {
 
         </div>
 
-        <div className="flex justify-center lg:justify-start space-x-4 my-4">
+    <div className='flex justify-center lg:justify-start space-x-4 my-4'>
+
+        <div className="grid grid-cols-3 gap-4 md:grid-cols-4">
                     <a 
                       // href={`https://twitter.com/intent/tweet?url=${currentUrl}&text=${blog.title}`} 
                       target="_blank" 
@@ -48,7 +50,35 @@ const Contact: React.FC<ContactProps> = () => {
                       <FaFacebook size={40} color="white"  />
                       <p>Facebook</p>
                     </a>
+                    <a 
+                      // href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="p-3 bg-transparent text-white hover:bg-[#0169a7] transition border border-[2px] border-[#2f5775] flex flex-col items-center" 
+                    >
+                      <FaInstagram size={40} color="white"  />
+                      <p>Instagram</p>
+                    </a>
+                    <a 
+                      // href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="p-3 bg-transparent text-white hover:bg-[#0169a7] transition border border-[2px] border-[#2f5775] flex flex-col items-center" 
+                    >
+                      <FaYoutube size={40} color="white"  />
+                      <p>YouTube</p>
+                    </a>
+                    <a 
+                      // href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="p-3 bg-transparent text-white hover:bg-[#0169a7] transition border border-[2px] border-[#2f5775] flex flex-col items-center" 
+                    >
+                      <FaTelegram size={40} color="white"  />
+                      <p>Telegram</p>
+                    </a>
                   </div>
+    </div>
       </div>
    
 <div className='flex flex-col gap-6 md:w-2/3 w-full '>

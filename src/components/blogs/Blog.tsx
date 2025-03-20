@@ -100,7 +100,7 @@ export default function Blog({ type , nums}: BlogProps) {
       {blogs.length > nums && (
         <div className="text-center mt-6">
           <Button
-            className="bg-[#0169a7] text-white font-semibold rounded-none hover:bg-[#0169a7]"
+            className="bg-[#0069a7] text-white font-semibold rounded-none hover:bg-[#2b5371] important hover:text-black border border-[#0069a7]"
             onClick={() => setShowAll((prev) => !prev)}
           >
             {showAll ? "Show Less" : "View All"}
