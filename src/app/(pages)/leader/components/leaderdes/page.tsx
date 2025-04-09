@@ -6,9 +6,9 @@ import Image from 'next/image';
 
 const leaders = [
   {
-    name: 'John Doe',
+    name: 'Mr. Saurabh Chaudry',
     role: 'Founder & CEO',
-    image: '/img/dumby_img.jpeg',
+    image: '/img/founder_img.jpeg',
     description:
       'John Doe is a visionary leader with a passion for social change. With over 20 years of experience in leadership development, he has pioneered various programs aimed at nurturing young leaders. His expertise in mentorship and strategic planning has been instrumental in the growth of ILead Global Foundation.',
   },

@@ -38,11 +38,12 @@ const InitiativesContent: React.FC = () => {
             abstract,
             author,
             date,
-            "image": mainImage.asset->url,
+            "image": mainImage[0].asset->url,
             "slug": slug.current
           }
         `;
         const data = await client.fetch(query);
+        console.log("🚀 ~ fetchBlogs ~ data:", data)
         setBlogs(data);
       } catch (error) {
         console.error("Error fetching blogs:", error);

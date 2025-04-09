@@ -14,6 +14,12 @@ const Navbar = () => {
   const [isResearchDropdownOpen, setIsResearchDropdownOpen] = useState(false);
   const [isInitiativesDropdownOpen, setIsInitiativesDropdownOpen] = useState(false);
 
+  const closeAllDropdowns = () => {
+    setIsResearchDropdownOpen(false);
+    setIsAboutDropdownOpen(false);
+    setIsInitiativesDropdownOpen(false);
+    setIsMobileMenuOpen(false);
+  };
 
   const navbarBgColor = ["/home", "/contact"].includes(pathname) ? "bg-transparent" : "bg-transparent";
 
@@ -33,10 +39,21 @@ const Navbar = () => {
           <div className="hidden md:flex gap-10 ml-10">
             {links[0].links.map((link) =>
               link.name === "Research" ? (
-                <div key={link.url} className="relative group">
+                <div key={link.url} className="relative group" 
+                onMouseEnter={() => {
+                  setIsResearchDropdownOpen(true);
+                  setIsAboutDropdownOpen(false);
+                  setIsInitiativesDropdownOpen(false);
+                }}
+                onMouseLeave={() => setIsResearchDropdownOpen(false)}
+                >
                   <button
                     className="text-xl text-black hover:underline hover:underline-offset-[20px] decoration-[4px] decoration-[#2b5371] hover:text-blue-300"
-                    onClick={() => setIsResearchDropdownOpen(!isResearchDropdownOpen)}
+                    onClick={() => {setIsResearchDropdownOpen(!isResearchDropdownOpen)
+                      setIsAboutDropdownOpen(false)
+                      setIsInitiativesDropdownOpen(false)
+                    }
+                  }
                   >
                     Research
                   </button>
@@ -45,14 +62,14 @@ const Navbar = () => {
                     className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isResearchDropdownOpen ? "opacity-100" : ""
                       }`}
                   >
-                    <Link href="/research?type=expertspeak" className="block px-4 py-2 text-black hover:bg-gray-200">
+                    <Link href="/research?type=expertspeak" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
                       Expert Speak
                     </Link>
-                    <Link href="/research?type=commentaries" className="block px-4 py-2 text-black hover:bg-gray-200">
+                    <Link href="/research?type=commentaries" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
                       Commentaries
 
                     </Link>
-                    <Link href="/research?type=youngvoice" className="block px-4 py-2 text-black hover:bg-gray-200">
+                    <Link href="/research?type=youngvoice" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
                       Young Voices
 
                     </Link>
@@ -60,10 +77,20 @@ const Navbar = () => {
                 </div>
               ) :
                 link.name === "About Us" ? (
-                  <div key={link.url} className="relative group">
+                  <div key={link.url} className="relative group" 
+                  onMouseEnter={() => {
+                    setIsResearchDropdownOpen(false);
+                    setIsAboutDropdownOpen(true);
+                    setIsInitiativesDropdownOpen(false);
+                  }}
+                  onMouseLeave={() => setIsAboutDropdownOpen(false)}
+                  >
                     <button
                       className="text-xl text-black hover:underline hover:underline-offset-[20px] decoration-[4px] decoration-[#2b5371] hover:text-blue-300"
-                      onClick={() => setIsAboutDropdownOpen(!isAboutDropdownOpen)}
+                      onClick={() => {setIsAboutDropdownOpen(!isAboutDropdownOpen)
+                        setIsResearchDropdownOpen(false)
+                        setIsInitiativesDropdownOpen(false)
+                      }}
                     >
                       About Us
                     </button>
@@ -72,38 +99,48 @@ const Navbar = () => {
                       className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isAboutDropdownOpen ? "opacity-100" : ""
                         }`}
                     >
-                      <Link href="/about/components/company" className="block px-4 py-2 text-black hover:bg-gray-200">
+                      <Link href="/about/components/company" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
                         Company
                       </Link>
-                      <Link href="/about/components/team" className="block px-4 py-2 text-black hover:bg-gray-200">
+                      <Link href="/about/components/team" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
                         Team
                       </Link>
-                      <Link href="/about/components/careers" className="block px-4 py-2 text-black hover:bg-gray-200">
+                      <Link href="/about/components/careers" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
                         Careers
                       </Link>
                     </div>
                   </div>
                 ) :
                   link.name === "Initiatives" ? (
-                    <div key={link.url} className="relative group">
+                    <div key={link.url} className="relative group"
+                     onMouseEnter={() => {
+                      setIsResearchDropdownOpen(false);
+                      setIsAboutDropdownOpen(false);
+                      setIsInitiativesDropdownOpen(true);
+                    }}
+                    onMouseLeave={() => setIsInitiativesDropdownOpen(false)}
+                    >
                       <button
                         className="text-xl text-black hover:underline hover:underline-offset-[20px] decoration-[4px] decoration-[#2b5371] hover:text-blue-300"
-                        onClick={() => setIsInitiativesDropdownOpen(!isInitiativesDropdownOpen)}
+                        onClick={() => {setIsInitiativesDropdownOpen(!isInitiativesDropdownOpen)
+                          setIsAboutDropdownOpen(false)
+                          setIsResearchDropdownOpen(false)
+                        }}
                       >
                         Initiatives
                       </button>
                       {/* Dropdown Content */}
                       <div
-                        className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isAboutDropdownOpen ? "opacity-100" : ""
+                        className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isInitiativesDropdownOpen ? "opacity-100" : ""
                           }`}
                       >
-                        <Link href="/initiatives?type=initiatives" className="block px-4 py-2 text-black hover:bg-gray-200">
+                        <Link href="/initiatives?type=initiatives" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
                           Initiatives
                         </Link>
-                        <Link href="/initiatives?type=featured" className="block px-4 py-2 text-black hover:bg-gray-200">
+                        <Link href="/initiatives?type=featured" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
                           Featured
                         </Link>
-                        <Link href="/initiatives?type=updated" className="block px-4 py-2 text-black hover:bg-gray-200">
+                        <Link href="/initiatives?type=updated" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
                           All Updated
                         </Link>
                       </div>

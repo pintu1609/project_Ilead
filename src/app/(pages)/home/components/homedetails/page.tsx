@@ -13,6 +13,7 @@ interface Blog {
   abstract: string;
   author: string;
   date: string;
+  // image: { asset: { url: string } }[];
   image: string;
   slug: string;
 }
@@ -32,8 +33,13 @@ const Homedetails: React.FC = () => {
             abstract,
             author,
             date,
-            "image": mainImage.asset->url,
-            "slug": slug.current
+          //   "image": mainImage[]{
+          //   asset->{
+          //     url
+          //   }
+          // },  
+           "image": mainImage[0].asset->url, 
+           "slug": slug.current
           }
         `;
 
@@ -43,7 +49,7 @@ const Homedetails: React.FC = () => {
             abstract,
             author,
             date,
-            "image": mainImage.asset->url,
+           "image": mainImage[0].asset->url,
             "slug": slug.current
           }
         `;
@@ -52,6 +58,7 @@ const Homedetails: React.FC = () => {
           client.fetch(featuredQuery),
           client.fetch(updatedQuery),
         ]);
+        console.log("🚀 ~ fetchBlog ~ data:", featuredData);
 
         setFeaturedBlogs(featuredData);
         setUpdatedBlogs(updatedData);
@@ -96,7 +103,7 @@ const Homedetails: React.FC = () => {
                     abstract={blog.abstract}
                     author={blog.author}
                     date={blog.date}
-                    image={blog.image}
+                    image={blog.image|| ""} // fallback if array is empty
                     slug={blog.slug}
                   />
                 )
@@ -142,7 +149,7 @@ const Homedetails: React.FC = () => {
                     abstract={blog.abstract}
                     author={blog.author}
                     date={blog.date}
-                    image={blog.image}
+                    image={blog.image || ""} 
                     slug={blog.slug}
                   />
                 )

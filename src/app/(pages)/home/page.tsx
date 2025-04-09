@@ -6,9 +6,9 @@ import style from './homeimage.module.css';
 import Homedetails from './components/homedetails/page';
 
 const images = [
-  { src: '/img/home.png', text: 'Inspiring Leadership Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, doloremque?' },
-  { src: '/img/ourinitiative.png', text: 'Fostering Innovation Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, doloremque?' },
-  { src: '/img/ourleader.png', text: 'Driving Social Change Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, doloremque?' }
+  { src: '/img/event_img1.jpeg', text: 'Inspiring Leadership Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, doloremque?' },
+  { src: '/img/event_img2.jpeg', text: 'Fostering Innovation Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, doloremque?' },
+  { src: '/img/event_img3.jpeg', text: 'Driving Social Change Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, doloremque?' },
 ];
 
 const Home = () => {
@@ -26,6 +26,7 @@ const Home = () => {
       <div className='relative flex md:flex-row flex-col gap-4 md:gap-0'>
         <div className={`relative md:w-3/4 w-full h-screen flex items-center justify-center ${style.container}`}>
           <Image
+          key={currentIndex}
             src={images[currentIndex].src}
             alt="slider image"
             layout="fill"

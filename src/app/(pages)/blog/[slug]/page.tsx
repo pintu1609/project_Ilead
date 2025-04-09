@@ -14,7 +14,7 @@ interface Blog {
   description: string;
   author: string;
   date: string;
-  image: string;
+  image: { asset: { url: string } }[];
   abstract: string;
   authorImage: string;
   authordetails: string;
@@ -22,8 +22,9 @@ interface Blog {
 
 export default function BlogDetails() {
   const { slug } = useParams();
-  console.log("🚀 ~ BlogDetails ~ slug:", slug);
   const [blog, setBlog] = useState<Blog | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
 
   useEffect(() => {
     if (!slug) return;
@@ -38,12 +39,12 @@ export default function BlogDetails() {
             author,
             "authorImage": authorImage.asset->url,
             date,
-            "image": mainImage.asset->url,
+           "image": mainImage[]{ asset->{url} },
             authordetails
           }`,
           { slug }
         );
-        console.log("🚀 ~ fetchBlog ~ data:", data);
+
         setBlog(data);
       } catch (error) {
         console.error("Error fetching blog details:", error);
@@ -52,7 +53,17 @@ export default function BlogDetails() {
     fetchBlog();
   }, [slug]);
 
-  console.log("🚀 ~ BlogDetails ~ blog:", blog);
+  useEffect(() => {
+    if (!blog?.image || blog.image.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % blog.image.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [blog]);
+
+
   if (!blog) return <div className="text-center p-10 h-[90vh] flex items-center justify-center">
  <ClipLoader
         color="#000000"
@@ -70,20 +81,33 @@ export default function BlogDetails() {
     <div className="mx-auto lg:mx-10 p-6 flex flex-col lg:flex-row gap-10">
       {/* Blog Content Section (4 parts) */}
       <div className="w-full lg:w-3/4">
-        <p className="text-gray-600 text-center lg:text-left my-4 text-xl">
-          By {blog.author} | {new Date(blog.date).toDateString()}
-        </p>
+      <div className="block lg:hidden">
+      <p className="text-gray-600 text-center lg:text-left my-4 text-xl">
 
-        {/* Blog Image */}
+    By {blog.author.length > 12 ? blog.author.slice(0, 12) + "..." : blog.author} | {new Date(blog.date).toDateString()}
+    </p>
+  </div>
+
+  {/* Desktop */}
+  <div className="hidden lg:block">
+  <p className="text-gray-600 text-center lg:text-left my-4 text-xl">
+          By {blog.author} | {new Date(blog.date).toDateString()}
+        </p>  </div>
+
+        {/* Image Slideshow */}
         <div className="mt-6 relative w-full h-96">
-          <Image
-            src={blog.image}
-            alt={blog.title}
-            layout="fill"
-            objectFit="cover"
-            className="rounded-lg shadow-lg"
-          />
-        </div>
+  {blog.image?.length > 0 && blog.image[currentImageIndex]?.asset?.url && (
+    <Image
+      key={currentImageIndex}
+      src={blog?.image[currentImageIndex].asset.url}
+      alt={`Blog Image ${currentImageIndex + 1}`}
+      fill
+      style={{ objectFit: "fill" }}
+      className="rounded-lg shadow-lg"
+    />
+  )}
+</div>
+
 
         {/* Blog Description */}
         <div className="mt-6 text-lg text-gray-700 leading-relaxed text-justify">

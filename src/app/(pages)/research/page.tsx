@@ -41,7 +41,7 @@ const ResearchContent: React.FC = () => {
             abstract,
             author,
             date,
-            "image": mainImage.asset->url,
+            "image": mainImage[0].asset->url,
             "slug": slug.current
           }
         `;

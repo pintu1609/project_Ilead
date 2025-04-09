@@ -44,7 +44,7 @@ export default function Blog({ title , abstract,author,date,image,slug}: Blog) {
                   alt={title}
                   width={500}
                   height={200}
-                  className=""
+                  className="h-64 w-full object-cover"
                 />
               </div>
               <CardContent>
