@@ -6,6 +6,7 @@ import Blog from "@/components/blogs/Blog";
 import Button from "@/components/ui/button";
 import client from "../../../../../../sanityClient"; // Ensure this is correctly imported
 import Initiativesdetails from "../initiativesdetails/page";
+import CorePhilosophy from "../corephilosophy/page";
 
 
 interface Blog {
@@ -171,6 +172,8 @@ const Homedetails: React.FC = () => {
           </div>
         )}
       </motion.div>
+
+      <CorePhilosophy />
 
       <Initiativesdetails/>
     </div>

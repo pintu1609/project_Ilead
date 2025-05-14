@@ -99,15 +99,27 @@ const Navbar = () => {
                       className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${isAboutDropdownOpen ? "opacity-100" : ""
                         }`}
                     >
-                      <Link href="/about/components/company" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
-                        Company
+                      <Link href="/about/components/trustees" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
+                      Trustees
                       </Link>
-                      <Link href="/about/components/team" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
-                        Team
+                      <Link href="/about/components/boardofdirectors" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
+                      Board of Directors
+
                       </Link>
-                      <Link href="/about/components/careers" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
-                        Careers
+                      <Link href="/about/components/internationaladvisoryboard" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
+                      International Advisory board
                       </Link>
+                      <Link href="/about/components/academicteam" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
+                      Academics team
+                      </Link>
+                      <Link href="/about/components/visionandmission" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
+Vision and Mission                      </Link>
+                      {/* <Link href="/about/components/internationaladvisoryboard" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
+                      International Advisory board
+                      </Link>
+                      <Link href="/about/components/internationaladvisoryboard" onClick={closeAllDropdowns} className="block px-4 py-2 text-black hover:bg-gray-200">
+                      International Advisory board
+                      </Link> */}
                     </div>
                   </div>
                 ) :
@@ -239,7 +251,37 @@ const Navbar = () => {
                   {/* Mobile Dropdown */}
                   {isAboutDropdownOpen && (
                     <div className="flex flex-col gap-2 px-4 py-2">
-                      <Link href="/about/components/company" className="text-lg text-white py-0 hover:underline" onClick={() => {
+                       <Link href="/about/components/trustees" onClick={() => {
+                        setIsAboutDropdownOpen(false)
+                        setIsMobileMenuOpen(false)
+                      }} className="block px-4 py-2 text-black hover:bg-gray-200">
+                      Trustees
+                      </Link>
+                      <Link href="/about/components/boardofdirectors" onClick={() => {
+                        setIsAboutDropdownOpen(false)
+                        setIsMobileMenuOpen(false)
+                      }} className="block px-4 py-2 text-black hover:bg-gray-200">
+                      Board of Directors
+
+                      </Link>
+                      <Link href="/about/components/internationaladvisoryboard" onClick={() => {
+                        setIsAboutDropdownOpen(false)
+                        setIsMobileMenuOpen(false)
+                      }} className="block px-4 py-2 text-black hover:bg-gray-200">
+                      International Advisory board
+                      </Link>
+                      <Link href="/about/components/academicteam" onClick={() => {
+                        setIsAboutDropdownOpen(false)
+                        setIsMobileMenuOpen(false)
+                      }} className="block px-4 py-2 text-black hover:bg-gray-200">
+                      Academics team
+                      </Link>
+                      <Link href="/about/components/visionandmission" onClick={() => {
+                        setIsAboutDropdownOpen(false)
+                        setIsMobileMenuOpen(false)
+                      }} className="block px-4 py-2 text-black hover:bg-gray-200">
+Vision and Mission                      </Link>
+                      {/* <Link href="/about/components/company" className="text-lg text-white py-0 hover:underline" onClick={() => {
                         setIsAboutDropdownOpen(false)
                         setIsMobileMenuOpen(false)
                       }}>
@@ -256,7 +298,7 @@ const Navbar = () => {
                         setIsMobileMenuOpen(false)
                       }}>
                         Careers
-                      </Link>
+                      </Link> */}
                     </div>
                   )}
                 </div>

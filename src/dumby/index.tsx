@@ -23,11 +23,11 @@ export const links = [
             url: 'leader',
             
           },
-          // {
-          //   name: 'Blog',
-          //   url: 'blog',
+          {
+            name: 'Policy Papers',
+            url: 'policypapers',
             
-          // },
+          },
           
         
       ],
