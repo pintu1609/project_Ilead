@@ -254,32 +254,32 @@ Vision and Mission                      </Link>
                        <Link href="/about/components/trustees" onClick={() => {
                         setIsAboutDropdownOpen(false)
                         setIsMobileMenuOpen(false)
-                      }} className="block px-4 py-2 text-black hover:bg-gray-200">
+                      }} className="text-lg text-white py-0 hover:underline">
                       Trustees
                       </Link>
                       <Link href="/about/components/boardofdirectors" onClick={() => {
                         setIsAboutDropdownOpen(false)
                         setIsMobileMenuOpen(false)
-                      }} className="block px-4 py-2 text-black hover:bg-gray-200">
+                      }} className="text-lg text-white py-0 hover:underline">
                       Board of Directors
 
                       </Link>
                       <Link href="/about/components/internationaladvisoryboard" onClick={() => {
                         setIsAboutDropdownOpen(false)
                         setIsMobileMenuOpen(false)
-                      }} className="block px-4 py-2 text-black hover:bg-gray-200">
+                      }} className="text-lg text-white py-0 hover:underline">
                       International Advisory board
                       </Link>
                       <Link href="/about/components/academicteam" onClick={() => {
                         setIsAboutDropdownOpen(false)
                         setIsMobileMenuOpen(false)
-                      }} className="block px-4 py-2 text-black hover:bg-gray-200">
+                      }} className="text-lg text-white py-0 hover:underline">
                       Academics team
                       </Link>
                       <Link href="/about/components/visionandmission" onClick={() => {
                         setIsAboutDropdownOpen(false)
                         setIsMobileMenuOpen(false)
-                      }} className="block px-4 py-2 text-black hover:bg-gray-200">
+                      }} className="text-lg text-white py-0 hover:underline">
 Vision and Mission                      </Link>
                       {/* <Link href="/about/components/company" className="text-lg text-white py-0 hover:underline" onClick={() => {
                         setIsAboutDropdownOpen(false)
