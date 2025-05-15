@@ -16,6 +16,15 @@ const initialContact = {
   'privacy-policy': false // For checkbox
 };
 
+
+const newInitialContact = {
+  name: '',
+  email: '',
+  subject: '',
+  message: ''
+};
+
+
 const contactValidationSchema = z.object({
   'first-name': z.string().min(1, "First name is required"),
   'last-name': z.string().min(1, "Last name is required"),
@@ -32,7 +41,16 @@ const contactValidationSchema = z.object({
   'privacy-policy': z.boolean().refine(val => val === true, "You must agree to the Privacy Policy")
 });
 
+const newContactValidationSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email address").min(1, "Email is required"),
+  subject: z.string().min(1, "Subject is required"),
+  message: z.string().min(1, "Message is required")
+});
+
   export {
     initialContact,
-    contactValidationSchema
+    contactValidationSchema,
+    newInitialContact,
+    newContactValidationSchema
   }

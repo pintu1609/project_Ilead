@@ -192,9 +192,9 @@ const Footer = () => {
 
 
 
-                                <Link href="/contact" passHref>
+                                <Link href="/policypapers" passHref>
 
-                                    <p className='text-[#5e5e5e] text-sm hover:text-white'>Contact US</p>
+                                    <p className='text-[#5e5e5e] text-sm hover:text-white'> Policy Papers</p>
                                 </Link>
                             </div>
                             <div className='flex flex-col gap-2'>
@@ -212,21 +212,31 @@ const Footer = () => {
                                 <div>
                                 {isAboutDropdownOpen && (
                     <div className="flex flex-col gap-2 px-4 py-2">
-                      <Link href="/about/components/company" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                      <Link href="/about/components/trustees" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
                         setIsAboutDropdownOpen(false)
                       }}>
-                        Company
+                        Trustees
                       </Link>
-                      <Link href="/about/components/team" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                      <Link href="/about/components/boardofdirectors" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
                         setIsAboutDropdownOpen(false)
                       }}>
-                        Team
+                     Board of Directors
                       </Link>
-                      <Link href="/about/components/careers" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                      <Link href="/about/components/internationaladvisoryboard" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
                         setIsAboutDropdownOpen(false)
                       }}>
-                        Careers
-                      </Link>
+ International Advisory board                      </Link>
+
+  <Link href="/about/components/academicteam" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                        setIsAboutDropdownOpen(false)
+                      }}>
+                      Academics team
+                     </Link>
+
+  <Link href="/about/components/visionandmission" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                        setIsAboutDropdownOpen(false)
+                      }}>
+ Vision and Mission                   </Link>
                     </div>
                   )}
                                     </div>
@@ -238,6 +248,11 @@ const Footer = () => {
 
                                     <p className=' text-[#5e5e5e] text-sm hover:text-white' >Leader</p>
                                 </Link>
+  <Link href="/contact" passHref>
+
+                                    <p className='text-[#5e5e5e] text-sm hover:text-white'>Contact US</p>
+                                </Link>
+
                                 {/* <Link href="/blog" passHref>
 
                         <p className=' text-[#5e5e5e] text-sm hover:text-white' >Blog</p>
