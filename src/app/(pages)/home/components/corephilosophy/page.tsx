@@ -1,13 +1,67 @@
 "use client"
 import Head from 'next/head';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { initiativesData } from '@/dumby/initiatives';
 import { philosophyData } from '@/dumby/corePhilosophy';
+import client from '../../../../../../sanityClient';
 
+
+interface Philosophy {
+    id: number;
+    title: string;
+     image: string;
+    alt: string;
+    shortText: string;
+    longText: string;
+    slug: string;
+}
 const CorePhilosophy: React.FC = () => {
+  const [philosophy, setPhilosophy] = useState<Philosophy[]>([]);
+  const [initiatives, setInitiatives] = useState<Philosophy[]>([]);
+
+  useEffect(() => {
+    const fetchContent = async () => {
+      try {
+        const philosophyQuery = `
+          *[_type == "philosophy"] | order(id asc) {
+            _id,
+            title,
+            shortText,
+            longText,
+            alt,
+            "image": image.asset->url,
+            "slug": slug.current
+          }
+        `;
+        const initiativeQuery = `
+          *[_type == "initiative"] | order(id asc) {
+            _id,
+            title,
+            shortText,
+            longText,
+            alt,
+            "image": image.asset->url,
+            "slug": slug.current
+          }
+        `;
+
+        const [philosophyData, initiativeData] = await Promise.all([
+          client.fetch(philosophyQuery),
+          client.fetch(initiativeQuery)
+        ]);
+
+        setPhilosophy(philosophyData);
+        setInitiatives(initiativeData);
+      } catch (error) {
+        console.error("Error fetching data from Sanity:", error);
+      }
+    };
+
+    fetchContent();
+  }, []);
   return (
     <div className=" min-h-screen">
       <Head>
@@ -30,7 +84,7 @@ const CorePhilosophy: React.FC = () => {
           Empowering young minds through structured mentorship and inclusive leadership opportunities.
         </p>
         <div className="grid md:grid-cols-3 gap-6 mt-6">
-        {philosophyData.map((item) => (
+        {philosophy.map((item) => (
           <motion.div whileHover={{ scale: 1.05 }} key={item.id} className=" bg-[#f0f0f0] rounded-lg shadow-md pb-4 ">
             <Image src={item.image} alt={item.alt} width={400} height={400} className="mx-auto w-full rounded-t-lg h-64" />
             <h3 className="text-2xl font-semibold mt-2 text-center">{item.title}</h3>
@@ -53,12 +107,12 @@ const CorePhilosophy: React.FC = () => {
         <p className='mt-4 text-lg text-[#848484] text-justify'>Building inclusive leadership through purpose-driven programs.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 ">
-          {initiativesData.map((initiative) => (
+          {initiatives.map((initiative) => (
             <motion.div key={initiative.id} whileHover={{ scale: 1.05 }} className=" bg-white rounded-lg shadow-md">
-              <Image src={initiative.img} alt={initiative.title} width={400} height={100} className="w-full rounded-t-lg h-64" />
+              <Image src={initiative.image} alt={initiative.alt} width={400} height={100} className="w-full rounded-t-lg h-64" />
               <h3 className="text-2xl font-semibold mt-4">{initiative.title}</h3>
-              <p className='text-[#848484] px-4 pb-2 text-justify text-lg'>{initiative.desc.short}</p>
-              <p className='text-[#848484] px-4 text-justify text-lg'>{initiative.desc.full} </p>
+              <p className='text-[#848484] px-4 pb-2 text-justify text-lg'>{initiative.shortText}</p>
+              <p className='text-[#848484] px-4 text-justify text-lg'>{initiative.longText} </p>
             </motion.div>
           ))}
         </div>
