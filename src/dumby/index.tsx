@@ -15,8 +15,8 @@ export const links = [
           
         },
         {
-          name:'Initiatives',
-          url: 'initiatives',
+          name:'Updates',
+          url: 'updates',
         },
         {
             name: 'Leader',
@@ -26,6 +26,16 @@ export const links = [
           {
             name: 'Policy Papers',
             url: 'policypapers',
+            
+          },
+          {
+            name: 'Flagship Initatives',
+            url: 'flagshipinitatives',
+            
+          },
+          {
+            name: 'Event',
+            url: 'events',
             
           },
           

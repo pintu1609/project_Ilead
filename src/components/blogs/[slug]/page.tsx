@@ -76,7 +76,7 @@ export default function BlogDetails() {
 
   return (
     <div className="my-10">
-        <h1 className="text-4xl font-bold text-center lg:text-center">{blog.title}</h1>
+        <h1 className="text-4xl font-bold text-center text-[#040677] lg:text-center">{blog.title}</h1>
     <div className="mx-auto lg:mx-10 p-6 flex flex-col lg:flex-row gap-10">
       {/* Blog Content Section (4 parts) */}
       <div className="w-full lg:w-3/4">

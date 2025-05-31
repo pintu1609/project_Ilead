@@ -87,15 +87,17 @@ const Homedetails: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
+        className="sm:p-10 p-4 text-center"
       >
-        <div className="flex flex-row gap-4 items-center mt-8 mb-8">
-          <h2 className="text-4xl font-semibold text-left">Featured</h2>
-          <div className="h-2 w-16 bg-[#FFC107]"></div>
+        <div className="flex flex-row gap-4 items-center mt-8 mb-8 ">
+                            <h2 className="flex items-center text-left text-[#040677] text-4xl font-semibold">Featured <hr className="w-32 h-[2px] ml-2 mt-2 bg-[#040677]" /></h2>
+
+          
         </div>
 
         <div>
           {featuredBlogs.length > 0 ? (
-            <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
+            <div className="grid gap-6 md:grid-cols-3 grid-cols-1 ">
               {(showAllFeatured ? featuredBlogs : featuredBlogs.slice(0, 3)).map(
                 (blog, index) => (
                   <Blog
@@ -133,10 +135,11 @@ const Homedetails: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
+        className="sm:p-10 p-4 text-center"
       >
         <div className="flex flex-row gap-4 items-center mb-8">
-          <h2 className="text-4xl font-semibold text-left py-8">All Updates</h2>
-          <div className="h-2 w-16 bg-[#FFC107]"></div>
+                  <h2 className="flex items-center text-left text-[#040677] text-4xl font-semibold">All Updates <hr className="w-32 h-[2px] ml-2 mt-2 bg-[#040677]" /></h2>
+
         </div>
 
         <div>

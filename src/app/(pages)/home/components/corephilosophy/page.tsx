@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { initiativesData } from '@/dumby/initiatives';
 import { philosophyData } from '@/dumby/corePhilosophy';
 import client from '../../../../../../sanityClient';
+import { Router } from 'next/router';
 
 
 interface Philosophy {
@@ -18,6 +19,8 @@ interface Philosophy {
     longText: string;
     slug: string;
 }
+
+
 const CorePhilosophy: React.FC = () => {
   const [philosophy, setPhilosophy] = useState<Philosophy[]>([]);
   const [initiatives, setInitiatives] = useState<Philosophy[]>([]);
@@ -108,12 +111,15 @@ const CorePhilosophy: React.FC = () => {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 ">
           {initiatives.map((initiative) => (
+                      <Link href={`/flagshipinitatives/${initiative.slug ?? ""}`} passHref>
+
             <motion.div key={initiative.id} whileHover={{ scale: 1.05 }} className=" bg-white rounded-lg shadow-md">
               <Image src={initiative.image} alt={initiative.alt} width={400} height={100} className="w-full rounded-t-lg h-64" />
               <h3 className="text-2xl font-semibold mt-4">{initiative.title}</h3>
               <p className='text-[#848484] px-4 pb-2 text-justify text-lg'>{initiative.shortText}</p>
               <p className='text-[#848484] px-4 text-justify text-lg'>{initiative.longText} </p>
             </motion.div>
+              </Link>
           ))}
         </div>
       </motion.div>

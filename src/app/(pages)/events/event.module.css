@@ -1,0 +1,33 @@
+/* events.module.css */
+.galleryItem {
+    position: relative;
+  overflow: hidden;
+  border-right: 3px solid var(--background-color);
+  border-bottom: 3px solid var(--background-color);
+}
+
+.galleryImage {
+  transition: all ease-in-out 0.4s;
+    height: 300px; /* or any fixed height */
+    width: 100%;
+    border-radius: 8px;
+  
+  
+  
+}
+
+.galleryItem:hover .galleryImage {
+  transform: scale(1.1);
+}
+.galleryInfo {
+    padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  
+ 
+  background-color: rgba(0, 0, 0, 0.5);
+ 
+  transition: all ease-in-out 0.4s;
+}

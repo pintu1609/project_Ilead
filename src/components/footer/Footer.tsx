@@ -196,59 +196,86 @@ const Footer = () => {
 
                                     <p className='text-[#5e5e5e] text-sm hover:text-white'> Policy Papers</p>
                                 </Link>
+                                <Link href="/events" passHref>
+
+                                    <p className='text-[#5e5e5e] text-sm hover:text-white'>Event</p>
+                                </Link>
+
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <div className='flex flex-col'>
-                                <div className='flex gap-2 items-center' onClick={() => {
-                                    setIsAboutDropdownOpen(!isAboutDropdownOpen)
-                                    setIsInitiativesDropdownOpen(false)
-                                    setIsResearchDropdownOpen(false)
-                                }}>
-                                    <p className=' text-[#5e5e5e] text-sm hover:text-white' >About</p>
-                                    {isAboutDropdownOpen ?
-                                        <MdKeyboardArrowUp size={20} color="#5e5e5e" /> :
-                                        <MdKeyboardArrowDown size={20} color="#5e5e5e" />}
-                                </div>
-                                <div>
-                                {isAboutDropdownOpen && (
-                    <div className="flex flex-col gap-2 px-4 py-2">
-                      <Link href="/about/components/trustees" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
-                        setIsAboutDropdownOpen(false)
-                      }}>
-                        Trustees
-                      </Link>
-                      <Link href="/about/components/boardofdirectors" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
-                        setIsAboutDropdownOpen(false)
-                      }}>
-                     Board of Directors
-                      </Link>
-                      <Link href="/about/components/internationaladvisoryboard" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
-                        setIsAboutDropdownOpen(false)
-                      }}>
- International Advisory board                      </Link>
+                                    <div className='flex gap-2 items-center' onClick={() => {
+                                        setIsAboutDropdownOpen(!isAboutDropdownOpen)
+                                        setIsInitiativesDropdownOpen(false)
+                                        setIsResearchDropdownOpen(false)
+                                    }}>
+                                        <p className=' text-[#5e5e5e] text-sm hover:text-white' >About</p>
+                                        {isAboutDropdownOpen ?
+                                            <MdKeyboardArrowUp size={20} color="#5e5e5e" /> :
+                                            <MdKeyboardArrowDown size={20} color="#5e5e5e" />}
+                                    </div>
+                                    <div>
+                                        {isAboutDropdownOpen && (
+                                            <div className="flex flex-col gap-2 px-4 py-2">
+                                                <Link href="/about/components/ourstory" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                                                    setIsAboutDropdownOpen(false)
+                                                }}>
+                                                    Our Story
+                                                </Link>
+                                                  <Link href="/about/components/visionandmission" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                                                    setIsAboutDropdownOpen(false)
+                                                }}>
+                                                    Vision and Mission                   </Link>
+                                                <Link href="/about/components/trustees" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                                                    setIsAboutDropdownOpen(false)
+                                                }}>
+                                                    Trustees
+                                                </Link>
+                                                <Link href="/about/components/boardofdirectors" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                                                    setIsAboutDropdownOpen(false)
+                                                }}>
+                                                    Board of Directors
+                                                </Link>
+                                                <Link href="/about/components/internationaladvisoryboard" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                                                    setIsAboutDropdownOpen(false)
+                                                }}>
+                                                    International Advisory board                      </Link>
 
-  <Link href="/about/components/academicteam" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
-                        setIsAboutDropdownOpen(false)
-                      }}>
-                      Academics team
-                     </Link>
+                                                <Link href="/about/components/academicteam" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                                                    setIsAboutDropdownOpen(false)
+                                                }}>
+                                                    Academics team
+                                                </Link>
 
-  <Link href="/about/components/visionandmission" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
-                        setIsAboutDropdownOpen(false)
-                      }}>
- Vision and Mission                   </Link>
-                    </div>
-                  )}
+                                              
+
+                                                     <Link href="/about/components/partners" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                                                    setIsAboutDropdownOpen(false)
+                                                }}>
+                                                    Partners                   </Link>
+
+                                                     <Link href="/about/components/alumninetwork" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                                                    setIsAboutDropdownOpen(false)
+                                                }}>
+                                                   Alumni nework from rising leaders                   </Link>
+
+
+                                            </div>
+                                        )}
                                     </div>
 
                                 </div>
-                                
+
 
                                 <Link href="/leader" passHref>
 
                                     <p className=' text-[#5e5e5e] text-sm hover:text-white' >Leader</p>
                                 </Link>
-  <Link href="/contact" passHref>
+                                <Link href="/flagshipinitatives" passHref>
+
+                                    <p className='text-[#5e5e5e] text-sm hover:text-white'>Flagship Initiatives</p>
+                                </Link>
+                                 <Link href="/contact" passHref>
 
                                     <p className='text-[#5e5e5e] text-sm hover:text-white'>Contact US</p>
                                 </Link>

@@ -13,11 +13,11 @@ const Vissionandmission: React.FC = () => {
       <h2 className="text-4xl font-bold text-center">Vision and Mission</h2>
       <h2 className="flex items-center text-[#040677] text-4xl font-semibold mt-2 ">Our Vision  <hr className="w-32 h-[2px] ml-2 mt-2 bg-[#040677]" />       </h2>
       <p className="text-gray-600 mt-4 text-lg text-justify">
-        To create a world where every aspiring changemaker has access to mentorship, opportunity, and a platform to lead.
+        We aspire to create a world where every young individual, irrespective of socio-economic background, has equal opportunities to develop their leadership potential and make a significant difference in their communities. Our vision is to build tomorrow's India, today, through inclusive and progressive change
       </p>
       <h2 className="flex items-center text-[#040677] text-4xl font-semibold mt-2">Our Mission <hr className="w-32 h-[2px] ml-2 mt-2 bg-[#040677]" /></h2>
       <p className="text-gray-600 mt-4 text-lg text-justify">
-        To identify, nurture, and empower youth—especially those underrepresented in traditional leadership spaces—through structured mentorship, inclusive dialogue, and leadership development programs.
+        We, at iLEAD Global Foundation, aim to nurture, connect, and develop the future leaders of the country who will drive inclusive and progressive change which will bring prosperity and joy to all sections of society. We aim to empower the voices of the people who are underrepresented, the women and the youth of this country. We aim to provide them with the necessary skills to succeed in all walks of life and provide global exposure to foster a more equitable and dynamic society.
       </p>
 
 
