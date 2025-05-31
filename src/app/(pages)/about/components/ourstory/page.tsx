@@ -31,9 +31,15 @@ const OurStory: React.FC = () => {
 
         <h2 className='flex items-center text-left text-[#040677] text-3xl font-semibold'>Our Achievements <hr className="w-32 h-[2px] ml-2 mt-2 bg-[#040677]" /></h2>
         <div className='flex flex-col gap-2'>
-          <p className='text-lg text-justify'>In the last half a decade or so, we have succeeded in establishing a global platform for dialogues, nurturing diverse thoughts and ideas and influencing policy decisions with suggestions, which are rooted in strong evidence through our “Celebrating New India” initiative.</p>
-          <p className='text-lg text-justify'>Our other prominent initiative, “iLEAD Women”, has empowered women through mentorship and built a strong community, challenging traditional norms and advocating for gender equality.</p>
-          <p className='text-lg text-justify'>We successfully organised the "Rising Leaders - for Inclusive & Progressive Change" program, including a significant event from December 2-4, 2023, in Delhi, bringing together leaders and emerging talents. We have trained an estimated 20-26 youth per batch and our program has proved to be a success.</p>
+          <p className='text-lg text-justify'>
+            In the last half a decade or so, we have succeeded in establishing a global platform for dialogues, nurturing diverse thoughts and ideas and influencing policy decisions with suggestions, which are rooted in strong evidence through our &ldquo;Celebrating New India&rdquo; initiative.
+          </p>
+          <p className='text-lg text-justify'>
+            Our other prominent initiative, &ldquo;iLEAD Women&rdquo;, has empowered women through mentorship and built a strong community, challenging traditional norms and advocating for gender equality.
+          </p>
+          <p className='text-lg text-justify'>
+            We successfully organised the &ldquo;Rising Leaders - for Inclusive & Progressive Change&rdquo; program, including a significant event from December 2-4, 2023, in Delhi, bringing together leaders and emerging talents. We have trained an estimated 20-26 youth per batch and our program has proved to be a success.
+          </p>
         </div>
       </div>
 

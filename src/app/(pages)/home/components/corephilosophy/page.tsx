@@ -111,7 +111,7 @@ const CorePhilosophy: React.FC = () => {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 ">
           {initiatives.map((initiative) => (
-                      <Link href={`/flagshipinitatives/${initiative.slug ?? ""}`} passHref>
+                      <Link href={`/flagshipinitatives/${initiative.slug ?? ""}`} passHref key={initiative.id}>
 
             <motion.div key={initiative.id} whileHover={{ scale: 1.05 }} className=" bg-white rounded-lg shadow-md">
               <Image src={initiative.image} alt={initiative.alt} width={400} height={100} className="w-full rounded-t-lg h-64" />

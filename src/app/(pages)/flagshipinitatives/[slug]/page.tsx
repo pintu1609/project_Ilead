@@ -1,34 +1,4 @@
-// "use client"
-// import Head from 'next/head';
 
-// const flagshipinitatives: React.FC = () => {
-
-    
-//   return (
-//     <div className="sm:p-10 p-2 bg-[#f5f5f5]">
-//       <Head>
-//         <title>About Us - ILead Global Foundation</title>
-//         <meta name="description" content="Learn more about ILead Global Foundation, our mission, vision, and impact." />
-//       </Head>
-
-//       <h2 className="text-4xl font-bold text-center">Flagship Initiatives</h2>
-//       <p className="mt-6 text-lg text-[#848484]">
-//         Since 2019, ILead Global Foundation has been dedicated to nurturing, developing, and empowering leaders across various fields. Our mission is to equip individuals with the necessary skills, knowledge, and resources to create meaningful change in society. Rooted in mentorship, innovation, and inclusivity, we are committed to fostering leadership that drives transformation and progress.
-//       </p>
-//         <div className='flex flex-col justify-center items-center'>
-//             <div className="mt-10 grid md:grid-cols-3 gap-6">
-
-//          <p>Comming soon</p>
-
-//         </div>
-//         </div>
-
-     
-//     </div>
-//   );
-// }
-
-// export default flagshipinitatives;
 
 
 
@@ -54,7 +24,7 @@ interface flagshipinitativesitem {
     slug: string;
 }
 
-export default function flagshipinitatives() {
+export default function FlagshipInitiatives() {
   const { slug } = useParams();
   console.log("🚀 ~ BlogDetails ~ slug:", slug)
   const [flagshipinitatives, setFlagshipinitatives] = useState<flagshipinitativesitem | null>(null);
