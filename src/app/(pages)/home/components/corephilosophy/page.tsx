@@ -8,6 +8,7 @@ import { initiativesData } from '@/dumby/initiatives';
 import { philosophyData } from '@/dumby/corePhilosophy';
 import client from '../../../../../../sanityClient';
 import { Router } from 'next/router';
+import { Card } from '@/components/ui/card';
 
 
 interface Philosophy {
@@ -89,6 +90,7 @@ const CorePhilosophy: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-6 mt-6">
         {philosophy.map((item) => (
           <motion.div whileHover={{ scale: 1.05 }} key={item.id} className=" bg-[#f0f0f0] rounded-lg shadow-md pb-4 ">
+
             <Image src={item.image} alt={item.alt} width={400} height={400} className="mx-auto w-full rounded-t-lg h-64" />
             <h3 className="text-2xl font-semibold mt-2 text-center">{item.title}</h3>
             <p className="mt-2 text-[#848484] px-4 pb-2 text-justify text-lg">{item.shortText}</p>
@@ -109,11 +111,10 @@ const CorePhilosophy: React.FC = () => {
         <h2 className="flex items-center text-left text-[#040677] text-4xl font-semibold">Our Flagship Initiatives <hr className="w-32 h-[2px] ml-2 mt-2 bg-[#040677]" /></h2>
         <p className='mt-4 text-lg text-[#848484] text-justify'>Building inclusive leadership through purpose-driven programs.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 ">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 items-stretch ">
           {initiatives.map((initiative) => (
                       <Link href={`/flagshipinitatives/${initiative.slug ?? ""}`} passHref key={initiative.id}>
-
-            <motion.div key={initiative.id} whileHover={{ scale: 1.05 }} className=" bg-white rounded-lg shadow-md">
+          <motion.div key={initiative.id} whileHover={{ scale: 1.05 }} className=" bg-white rounded-lg shadow-md h-full">
               <Image src={initiative.image} alt={initiative.alt} width={400} height={100} className="w-full rounded-t-lg h-64" />
               <h3 className="text-2xl font-semibold mt-4">{initiative.title}</h3>
               <p className='text-[#848484] px-4 pb-2 text-justify text-lg'>{initiative.shortText}</p>
