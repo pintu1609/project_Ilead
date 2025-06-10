@@ -60,14 +60,14 @@ const Footer = () => {
             <div className="container mx-auto flex flex-col items-center px-4 sm:w-4/5 w-full py-6 ">
                 <p className="text-4xl mb-2 py-16 text-center">GET CONNECT WITH US</p>
                 <div className="flex gap-4">
-                    <Link href="https://www.facebook.com" passHref className='bg-white p-1 rounded rounded-full hover:bg-blue-500'>
+                    <Link href="https://www.facebook.com/iLEADIndia/" passHref className='bg-white p-1 rounded rounded-full hover:bg-blue-500'>
                         <React.Fragment>
                             <span className="text-[#1c1c1d] hover:text-white">
                                 <FaFacebookF size={24} />
                             </span>
                         </React.Fragment>
                     </Link>
-                    <Link href="https://twitter.com" passHref className='bg-white p-1 rounded rounded-full hover:bg-blue-500'>
+                    <Link href="https://x.com/ileadglobe" passHref className='bg-white p-1 rounded rounded-full hover:bg-blue-500'>
                         <React.Fragment>
 
                             <span className="text-[#1c1c1d] hover:text-white">
@@ -76,7 +76,7 @@ const Footer = () => {
                         </React.Fragment>
 
                     </Link>
-                    <Link href="https://www.instagram.com" passHref className='bg-white p-1 rounded rounded-full hover:bg-blue-500'>
+                    <Link href="https://www.instagram.com/IleadIndia/#" passHref className='bg-white p-1 rounded rounded-full hover:bg-blue-500'>
                         <React.Fragment>
 
                             <span className="text-[#1c1c1d] hover:text-white">
@@ -85,7 +85,7 @@ const Footer = () => {
                         </React.Fragment>
 
                     </Link>
-                    <Link href="https://www.linkedin.com" passHref className='bg-white p-1 rounded rounded-full hover:bg-blue-500'>
+                    {/* <Link href="https://www.linkedin.com" passHref className='bg-white p-1 rounded rounded-full hover:bg-blue-500'>
                         <React.Fragment>
 
                             <span className="text-[#1c1c1d] hover:text-white">
@@ -93,7 +93,7 @@ const Footer = () => {
                             </span>
                         </React.Fragment>
 
-                    </Link>
+                    </Link> */}
 
                     <Link href="mailto:your-email@example.com" passHref className='bg-white p-1 rounded rounded-full hover:bg-blue-500'>
                         <React.Fragment>
@@ -169,7 +169,7 @@ const Footer = () => {
                                                 <Link href="/initiatives?type=initiatives" className="text-[#5e5e5e] text-sm py-0 hover:underline" onClick={() => {
                                                     setIsInitiativesDropdownOpen(false)
                                                 }}>
-                                                    Initiatives
+                                                    Updates
                                                 </Link>
                                                 <Link href="/initiatives?type=featured" className="text-[#5e5e5e] text-sm py-0 hover:underline" onClick={() => {
                                                     setIsInitiativesDropdownOpen(false)
@@ -188,18 +188,26 @@ const Footer = () => {
                                     </div>
 
                                 </div>
+                                <Link href="/flagshipinitatives" passHref>
+
+                                    <p className='text-[#5e5e5e] text-sm hover:text-white'>Flagship Initiatives</p>
+                                </Link>
+                                <Link href="/contact" passHref>
+
+                                    <p className='text-[#5e5e5e] text-sm hover:text-white'>Contact US</p>
+                                </Link>
 
 
 
 
-                                <Link href="/policypapers" passHref>
+                                {/* <Link href="/policypapers" passHref>
 
                                     <p className='text-[#5e5e5e] text-sm hover:text-white'> Policy Papers</p>
                                 </Link>
                                 <Link href="/events" passHref>
 
                                     <p className='text-[#5e5e5e] text-sm hover:text-white'>Event</p>
-                                </Link>
+                                </Link> */}
 
                             </div>
                             <div className='flex flex-col gap-2'>
@@ -222,7 +230,7 @@ const Footer = () => {
                                                 }}>
                                                     Our Story
                                                 </Link>
-                                                  <Link href="/about/components/visionandmission" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                                                <Link href="/about/components/visionandmission" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
                                                     setIsAboutDropdownOpen(false)
                                                 }}>
                                                     Vision and Mission                   </Link>
@@ -247,17 +255,17 @@ const Footer = () => {
                                                     Academics team
                                                 </Link>
 
-                                              
 
-                                                     <Link href="/about/components/partners" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+
+                                                <Link href="/about/components/partners" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
                                                     setIsAboutDropdownOpen(false)
                                                 }}>
                                                     Partners                   </Link>
 
-                                                     <Link href="/about/components/alumninetwork" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
+                                                <Link href="/about/components/alumninetwork" className="text-sm text-[#5e5e5e] py-0 hover:underline" onClick={() => {
                                                     setIsAboutDropdownOpen(false)
                                                 }}>
-                                                   Alumni nework from rising leaders                   </Link>
+                                                    Alumni nework from rising leaders                   </Link>
 
 
                                             </div>
@@ -267,18 +275,27 @@ const Footer = () => {
                                 </div>
 
 
-                                <Link href="/leader" passHref>
+                                {/* <Link href="/leader" passHref>
 
                                     <p className=' text-[#5e5e5e] text-sm hover:text-white' >Leader</p>
+                                </Link> */}
+                                 <Link href="/policypapers" passHref>
+
+                                    <p className='text-[#5e5e5e] text-sm hover:text-white'> Policy Papers</p>
                                 </Link>
-                                <Link href="/flagshipinitatives" passHref>
+                                <Link href="/events" passHref>
+
+                                    <p className='text-[#5e5e5e] text-sm hover:text-white'>Event</p>
+                                </Link>
+
+                                {/* <Link href="/flagshipinitatives" passHref>
 
                                     <p className='text-[#5e5e5e] text-sm hover:text-white'>Flagship Initiatives</p>
                                 </Link>
-                                 <Link href="/contact" passHref>
+                                <Link href="/contact" passHref>
 
                                     <p className='text-[#5e5e5e] text-sm hover:text-white'>Contact US</p>
-                                </Link>
+                                </Link> */}
 
                                 {/* <Link href="/blog" passHref>
 

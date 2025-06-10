@@ -18,11 +18,11 @@ export const links = [
           name:'Updates',
           url: 'updates',
         },
-        {
-            name: 'Leader',
-            url: 'leader',
+        // {
+        //     name: 'Leader',
+        //     url: 'leader',
             
-          },
+        //   },
           {
             name: 'Policy Papers',
             url: 'policypapers',
